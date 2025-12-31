@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AETHER | The Future of Learning</title>
+    <!-- Tailwind for Layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <!-- Lottie Player -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LIBRARIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="./ele2.css" />
+  </head>
+  <body class="antialiased">
+    <div class="grain"></div>
+
+    <!-- 1. PRELOADER -->
+    <div id="preloader">
+      <div class="loader-content">
+        <div class="stack-icon mb-6">
+          <div class="block b-1"></div>
+          <div class="block b-2"></div>
+          <div class="block b-3"></div>
+        </div>
+
+        <div
+          class="overflow-hidden relative h-12 md:h-20 flex items-center justify-center"
+        >
+          <h1
+            id="loader-brand"
+            class="text-4xl md:text-7xl font-bold tracking-tighter opacity-0"
+          >
+            STACKLY
+          </h1>
+          <div
+            id="loader-scan"
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent -translate-x-full"
+          ></div>
+        </div>
+
+        <div
+          id="loader-status"
+          class="mt-4 text-[10px] tracking-[0.5em] uppercase opacity-40"
+        >
+          Building Excellence
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <!-- <nav
+      class="fixed top-0 w-full z-[100] px-4 md:px-8 py-4 md:py-6 flex justify-between items-center bg-black/50 backdrop-blur-lg lg:bg-transparent lg:backdrop-blur-none"
+    >
+      <div class="text-xl md:text-2xl font-extrabold tracking-tighter">
+        AETHER<span class="text-indigo-500">.</span>
+      </div>
+      <div class="hidden lg:flex gap-10 text-sm font-medium opacity-70">
+        <a href="#" class="hover:opacity-100 transition-opacity">Courses</a>
+        <a href="#" class="hover:opacity-100 transition-opacity">Mentors</a>
+        <a href="#" class="hover:opacity-100 transition-opacity">Resources</a>
+      </div>
+      <div
+        class="btn-magnetic text-[10px] md:text-sm border border-white/20 px-4 md:px-6 py-2 rounded-full cursor-pointer hover:bg-white hover:text-black transition-all"
+      >
+        Get Access
+      </div>
+    </nav> -->
+    <div class="cursor-follower" id="cursor"></div>
+
+    <nav class="navbar" id="navbar">
+      <a href="./home.html" class="logo-container nav-logo">
+        <img src="./assets/logooo.webp" alt="Company Logo" class="logo-img" />
+      </a>
+
+      <div class="nav-wrapper">
+        <div class="nav-container">
+          <div class="nav-item">
+            <a href="#" class="nav-link">HOME <span class="chevron"></span></a>
+            <div class="energy-line"></div>
+            <div class="dropdown">
+              <a href="./home.html" class="dropdown-item">HOME2</a>
+              <a href="./index.html" class="dropdown-item">HOME1</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="./apps.html" class="nav-link">APPS</a>
+            <div class="energy-line"></div>
+          </div>
+          <div class="nav-item">
+            <a href="./about2.html" class="nav-link">ABOUT</a>
+            <div class="energy-line"></div>
+          </div>
+          <div class="nav-item">
+            <a href="./faq.html" class="nav-link">FAQ</a>
+            <div class="energy-line"></div>
+          </div>
+          <div class="nav-item">
+            <a href="./blog2.html" class="nav-link">BLOG</a>
+            <div class="energy-line"></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="./contact2.html"> <button class="btn-login">CONTACT</button></a>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileMenu">
+      <div class="mobile-close" id="mobileClose">
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a
+          href="#"
+          class="mobile-link has-dropdown"
+          onclick="toggleMobileDropdown(this)"
+          >HOME</a
+        >
+        <div class="mobile-dropdown">
+          <a href="./home.html" class="mobile-dropdown-item">HOME2</a>
+          <a href="./index.html" class="mobile-dropdown-item">HOME1</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="./apps.html" class="mobile-link">APPS</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="./about2.html" class="mobile-link">ABOUT</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="./faq.html" class="mobile-link">FAQ</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="./blog2.html" class="mobile-link">BLOG</a>
+      </div>
+
+      <a href="./contact2.html"
+        ><button
+          class="btn-login"
+          style="
+            display: block;
+            width: 100%;
+            margin-top: 40px;
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+          "
+        >
+          CONTACT
+        </button></a
+      >
+    </div>
+    <!-- 2. HERO SECTION -->
+    <section
+      class="relative min-h-screen flex items-center justify-center pt-24 pb-12 lg:py-20 overflow-hidden"
+      id="hero"
+    >
+      <div
+        class="orb w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-purple-600 top-[-5%] left-[-10%]"
+      ></div>
+      <div
+        class="orb w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-pink-600 bottom-[-5%] right-[-10%]"
+      ></div>
+
+      <div class="container mx-auto px-6">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center"
+        >
+          <!-- Content Left -->
+          <div class="lg:col-span-7 z-10 mobile-center-text">
+            <div
+              class="inline-block px-4 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] md:text-xs font-semibold tracking-widest uppercase mb-6 reveal-item"
+            >
+              ✨ Next-Gen Learning Ecosystem
+            </div>
+            <h1
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold cinematic-text mb-6 md:mb-8 tracking-tighter reveal-item"
+            >
+              Master Skills. <br class="hidden md:block" />
+              <span class="gradient-glow">Without Limits.</span>
+            </h1>
+            <p
+              class="text-sm md:text-lg text-white/60 max-w-lg mb-8 md:mb-10 leading-relaxed mx-auto lg:mx-0 reveal-item"
+            >
+              Experience the world's most immersive cloud-based LMS. AI-driven
+              paths, cinematic content, and global mentorship in one obsidian
+              space.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 md:gap-6 reveal-item"
+            >
+              <a href="./404.html"
+                ><button
+                  class="btn-magnetic btn-primary text-white group w-full sm:w-auto"
+                >
+                  Start Learning Free
+                  <svg
+                    class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    ></path>
+                  </svg></button
+              ></a>
+              <a href="./404.html"
+                ><button
+                  class="btn-magnetic bg-white/5 border border-white/10 rounded-full font-semibold hover:bg-white/10 transition-colors w-full sm:w-auto"
+                >
+                  Watch Trailer
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Visual Right -->
+          <div
+            class="lg:col-span-5 relative hero-visual reveal-item order-first lg:order-last"
+          >
+            <div
+              class="relative z-10 glass-card p-2 md:p-4 rotate-0 lg:rotate-3 transform-gpu overflow-hidden max-w-[400px] lg:max-w-none mx-auto"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
+                alt="UI"
+                class="rounded-xl grayscale-[0.5] hover:grayscale-0 transition-all duration-700 w-full aspect-video lg:aspect-square object-cover"
+              />
+              <div
+                id="lottie-hero-orb"
+                class="absolute -top-6 -right-6 md:-top-10 md:-right-10 w-24 h-24 md:w-40 md:h-40 pointer-events-none"
+              ></div>
+            </div>
+            <!-- Parallax Mini-Card -->
+            <div
+              class="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 glass-card p-4 md:p-6 z-20 parallax-layer hidden sm:block"
+              data-speed="0.05"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500"
+                >
+                  <svg
+                    class="w-4 h-4 md:w-6 md:h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-[10px] md:text-sm font-bold">
+                    98.4% Success
+                  </div>
+                  <div
+                    class="text-[8px] md:text-[10px] opacity-50 uppercase tracking-widest"
+                  >
+                    Global Students
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TRUST STRIP -->
+    <div
+      class="py-12 md:py-20 border-y border-white/5 bg-white/[0.01] overflow-hidden"
+    >
+      <div class="container mx-auto px-6 text-center">
+        <p
+          class="text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] text-white/40 mb-8 md:mb-12"
+        >
+          Accelerating talent at global scale
+        </p>
+        <div
+          class="flex flex-wrap justify-center items-center gap-8 md:gap-24 opacity-30 grayscale brand-logo-container"
+        >
+          <span class="text-lg md:text-2xl font-bold tracking-tighter"
+            >GOOGLE</span
+          >
+          <span class="text-lg md:text-2xl font-bold tracking-tighter"
+            >NETFLIX</span
+          >
+          <span class="text-lg md:text-2xl font-bold tracking-tighter"
+            >STRIPE</span
+          >
+          <span class="text-lg md:text-2xl font-bold tracking-tighter"
+            >ADOBE</span
+          >
+          <span class="text-lg md:text-2xl font-bold tracking-tighter"
+            >METALAB</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. ABOUT SECTION -->
+    <section class="py-20 lg:py-32 relative overflow-hidden" id="about">
+      <div class="container mx-auto px-6">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+        >
+          <div
+            class="relative about-image-container max-w-[500px] mx-auto lg:mx-0"
+          >
+            <div
+              class="aspect-square rounded-[30px] md:rounded-[40px] overflow-hidden mask-animation relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80"
+                alt="Team"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent"
+              ></div>
+            </div>
+            <div
+              class="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 glass-card p-4 md:p-8 floating-element"
+            >
+              <div
+                class="text-2xl md:text-4xl font-extrabold gradient-glow mb-1"
+              >
+                10k+
+              </div>
+              <div
+                class="text-[8px] md:text-xs uppercase tracking-widest opacity-50"
+              >
+                Mentors worldwide
+              </div>
+            </div>
+          </div>
+          <div class="mobile-center-text">
+            <h2
+              class="text-3xl md:text-5xl font-bold cinematic-text mb-8 leading-tight"
+            >
+              Beyond a Platform. <br />A Career Engine.
+            </h2>
+            <ul class="space-y-6 md:space-y-8 text-left">
+              <li class="flex flex-col sm:flex-row gap-4 md:gap-6 group">
+                <div
+                  class="w-12 h-12 shrink-0 rounded-2xl glass-card flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all mx-auto sm:mx-0"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <div class="text-center sm:text-left">
+                  <h4 class="text-lg md:text-xl font-bold mb-2">
+                    Instant Skill Verification
+                  </h4>
+                  <p class="text-sm md:text-base text-white/50">
+                    Industry-recognized certificates minted directly onto your
+                    profile for recruiters.
+                  </p>
+                </div>
+              </li>
+              <li class="flex flex-col sm:flex-row gap-4 md:gap-6 group">
+                <div
+                  class="w-12 h-12 shrink-0 rounded-2xl glass-card flex items-center justify-center text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-all mx-auto sm:mx-0"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="text-center sm:text-left">
+                  <h4 class="text-lg md:text-xl font-bold mb-2">
+                    Community Driven
+                  </h4>
+                  <p class="text-sm md:text-base text-white/50">
+                    Collaborate with thousands of peers in real-time labs and
+                    hackathons.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. COURSE CARDS -->
+    <section class="py-20 lg:py-32 bg-white/[0.02]">
+      <div class="container mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-20 text-center md:text-left"
+        >
+          <div class="mb-6 md:mb-0">
+            <p
+              class="text-indigo-400 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-xs mb-4"
+            >
+              Curated Curriculums
+            </p>
+            <h2 class="text-3xl md:text-5xl font-bold cinematic-text">
+              Trending Universes
+            </h2>
+          </div>
+          <a href="./404.html">
+            <button
+              class="text-xs md:text-sm font-semibold hover:text-indigo-400 transition-colors flex items-center gap-2"
+            >
+              View All Pathwaves
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M9 5l7 7-7 7"></path>
+              </svg></button
+          ></a>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+        >
+          <!-- Card 1 -->
+          <a href="./404.html">
+            <div
+              class="glass-card group cursor-pointer overflow-hidden p-3 md:p-4"
+            >
+              <div
+                class="relative h-48 md:h-64 rounded-2xl overflow-hidden mb-6"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
+                  alt="Design"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                />
+                <div
+                  class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                >
+                  <div
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 md:w-8 md:h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  class="absolute top-3 right-3 px-2 py-1 rounded-full bg-black/60 backdrop-blur-md text-[8px] md:text-[10px] font-bold uppercase tracking-widest"
+                >
+                  34 Lessons
+                </div>
+              </div>
+              <div class="px-2 md:px-4 pb-4">
+                <h3
+                  class="text-lg md:text-xl font-bold mb-3 group-hover:text-indigo-400 transition-colors"
+                >
+                  Digital Product Design V2
+                </h3>
+                <div class="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                  <div class="flex -space-x-2">
+                    <div
+                      class="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#05070a] bg-gray-600"
+                    ></div>
+                    <div
+                      class="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#05070a] bg-indigo-600"
+                    ></div>
+                  </div>
+                  <span class="text-[10px] md:text-xs text-white/40"
+                    >4.2k Students enrolled</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center border-t border-white/5 pt-4 md:pt-6"
+                >
+                  <span class="text-xl md:text-2xl font-bold">$129</span>
+                  <span class="text-indigo-400 text-xs md:text-sm font-semibold"
+                    >Join Now</span
+                  >
+                </div>
+              </div>
+            </div></a
+          >
+
+          <!-- Card 2 -->
+          <a href="./404.html">
+            <div
+              class="glass-card group cursor-pointer overflow-hidden p-3 md:p-4"
+            >
+              <div
+                class="relative h-48 md:h-64 rounded-2xl overflow-hidden mb-6"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=800&q=80"
+                  alt="Design"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                />
+                <div
+                  class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                >
+                  <div
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 md:w-8 md:h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  class="absolute top-3 right-3 px-2 py-1 rounded-full bg-black/60 backdrop-blur-md text-[8px] md:text-[10px] font-bold uppercase tracking-widest"
+                >
+                  12 Hours
+                </div>
+              </div>
+              <div class="px-2 md:px-4 pb-4">
+                <h3
+                  class="text-lg md:text-xl font-bold mb-3 group-hover:text-pink-400 transition-colors"
+                >
+                  Advanced Motion Theory
+                </h3>
+                <div class="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                  <div class="flex -space-x-2">
+                    <div
+                      class="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#05070a] bg-pink-600"
+                    ></div>
+                  </div>
+                  <span class="text-[10px] md:text-xs text-white/40"
+                    >1.8k Students enrolled</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center border-t border-white/5 pt-4 md:pt-6"
+                >
+                  <span class="text-xl md:text-2xl font-bold">$199</span>
+                  <span class="text-pink-400 text-xs md:text-sm font-semibold"
+                    >Join Now</span
+                  >
+                </div>
+              </div>
+            </div></a
+          >
+
+          <!-- Card 3 (Hidden on Tablet, visible on Desktop/Mobile) -->
+          <a href="./404.html"
+            ><div
+              class="glass-card group cursor-pointer overflow-hidden p-3 md:p-4 md:hidden lg:block"
+            >
+              <div
+                class="relative h-48 md:h-64 rounded-2xl overflow-hidden mb-6"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80"
+                  alt="Design"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                />
+                <div
+                  class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                >
+                  <div
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 md:w-8 md:h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  class="absolute top-3 right-3 px-2 py-1 rounded-full bg-black/60 backdrop-blur-md text-[8px] md:text-[10px] font-bold uppercase tracking-widest"
+                >
+                  Elite
+                </div>
+              </div>
+              <div class="px-2 md:px-4 pb-4">
+                <h3
+                  class="text-lg md:text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors"
+                >
+                  Web Development React V4
+                </h3>
+                <div class="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                  <div class="flex -space-x-2">
+                    <div
+                      class="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-[#05070a] bg-blue-600"
+                    ></div>
+                  </div>
+                  <span class="text-[10px] md:text-xs text-white/40"
+                    >12k Students enrolled</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center border-t border-white/5 pt-4 md:pt-6"
+                >
+                  <span class="text-xl md:text-2xl font-bold">Free</span>
+                  <span class="text-blue-400 text-xs md:text-sm font-semibold"
+                    >Join Now</span
+                  >
+                </div>
+              </div>
+            </div></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS -->
+    <section class="py-20 lg:py-32 overflow-hidden">
+      <div class="container mx-auto px-6 text-center mb-12 md:mb-20">
+        <h2 class="text-3xl md:text-4xl font-bold cinematic-text">
+          Voices of Achievement
+        </h2>
+      </div>
+      <div
+        class="flex gap-4 md:gap-8 px-6 testimonials-slider cursor-grab active:cursor-grabbing"
+      >
+        <div
+          class="min-w-[300px] md:min-w-[400px] glass-card p-6 md:p-10 relative"
+        >
+          <p
+            class="text-base md:text-xl leading-relaxed italic mb-8 md:mb-10 text-white/80"
+          >
+            "Aether completely redefined how I view online education. The
+            cinematic approach keeps me engaged."
+          </p>
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500"
+            ></div>
+            <div>
+              <div class="font-bold text-sm md:text-base">Julian V.</div>
+              <div class="text-[10px] md:text-xs opacity-50">
+                Senior Designer @ Meta
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="min-w-[300px] md:min-w-[400px] glass-card p-6 md:p-10 relative"
+        >
+          <p
+            class="text-base md:text-xl leading-relaxed italic mb-8 md:mb-10 text-white/80"
+          >
+            "The best investment I've made in my career. The mentors here are
+            working on real-world problems."
+          </p>
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-pink-500 to-orange-500"
+            ></div>
+            <div>
+              <div class="font-bold text-sm md:text-base">Sarah Kong</div>
+              <div class="text-[10px] md:text-xs opacity-50">
+                Lead Dev @ Stripe
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="min-w-[300px] md:min-w-[400px] glass-card p-6 md:p-10 relative"
+        >
+          <p
+            class="text-base md:text-xl leading-relaxed italic mb-8 md:mb-10 text-white/80"
+          >
+            "Finally an LMS that doesn't feel like a dusty classroom. It feels
+            like a high-end production."
+          </p>
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-green-500 to-blue-500"
+            ></div>
+            <div>
+              <div class="font-bold text-sm md:text-base">Marcus Roe</div>
+              <div class="text-[10px] md:text-xs opacity-50">
+                Creative Director
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FINAL CTA -->
+    <section class="py-20 md:py-40 relative">
+      <div class="container mx-auto px-6">
+        <div
+          class="glass-card p-8 md:p-20 text-center relative overflow-hidden bg-gradient-to-br from-indigo-900/20 via-transparent to-pink-900/20"
+        >
+          <div class="relative z-10">
+            <h2
+              class="text-4xl md:text-8xl font-extrabold cinematic-text mb-6 md:mb-8 tracking-tighter"
+            >
+              Your Legacy <br /><span class="gradient-glow">Starts Here.</span>
+            </h2>
+            <p
+              class="text-sm md:text-xl text-white/40 mb-10 md:mb-12 max-w-2xl mx-auto"
+            >
+              Join 150,000+ students building the future. Your first lesson is
+              waiting for you in the cloud.
+            </p>
+            <a href="./404.html">
+              <div
+                class="btn-magnetic btn-primary text-base md:text-xl px-10 md:px-12 py-4 md:py-6 rounded-full cursor-pointer hover:scale-105 transition-transform inline-flex"
+              >
+                Secure Your Spot
+              </div></a
+            >
+          </div>
+          <div
+            class="absolute inset-0 z-0 opacity-20 md:opacity-30"
+            id="lottie-ambient"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer" id="footer">
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="bokeh-container" id="bokeh" aria-hidden="true"></div>
+
+      <div class="footer-container">
+        <div class="footer-grid">
+          <!-- Brand Area -->
+          <section class="brand-box">
+            <div class="logo-wrap">
+              <!-- <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="4"
+                  y="20"
+                  width="24"
+                  height="6"
+                  rx="1"
+                  fill="#ff2d95"
+                />
+                <rect
+                  x="8"
+                  y="12"
+                  width="16"
+                  height="6"
+                  rx="1"
+                  fill="#ff2d95"
+                  fill-opacity="0.7"
+                />
+                <rect
+                  x="12"
+                  y="4"
+                  width="8"
+                  height="6"
+                  rx="1"
+                  fill="#ff2d95"
+                  fill-opacity="0.4"
+                />
+              </svg> -->
+              <a href="./home.html" class="logo-container footer-logo">
+                <img
+                  src="./assets/logooo.webp"
+                  alt="Company Logo"
+                  class="logo-img"
+                />
+              </a>
+            </div>
+            <p class="brand-tagline">
+              Building the future of digital education with cinematic precision
+              and immersive technology.
+            </p>
+            <div class="lottie-badge">
+              <!-- Replacement Note: Swap URL with your own Lottie JSON -->
+              <lottie-player
+                src="https://assets2.lottiefiles.com/packages/lf20_m6cuL6.json"
+                background="transparent"
+                speed="1"
+                style="width: 50px; height: 50px"
+                loop
+                autoplay
+                aria-hidden="true"
+              >
+              </lottie-player>
+            </div>
+          </section>
+
+          <!-- Quick Links -->
+          <nav class="footer-nav" aria-label="Footer Navigation">
+            <h2 class="footer-heading">Navigate</h2>
+            <ul>
+              <li>
+                <a href="./home.html" aria-label="Go to Home page">HOME</a>
+              </li>
+              <li><a href="./apps.html" aria-label="View our Apps">APPS</a></li>
+              <li>
+                <a href="./about2.html" aria-label="About Stackly">ABOUT</a>
+              </li>
+              <li>
+                <a href="./blog2.html" aria-label="Read our Blog">BLOG</a>
+              </li>
+              <li>
+                <a href="./faq.html" aria-label="Frequently Asked Questions"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a href="./contact2.html" aria-label="Contact us">CONTACT</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Latest News -->
+          <section class="news-wrap">
+            <h2 class="footer-heading">Latest Pulse</h2>
+            <div class="news-section">
+              <div id="news-marquee">
+                <a href="./404.html" class="news-item">
+                  <span class="news-date">MAR 24, 2024</span>
+                  <span class="news-title"
+                    >Stackly VR reaches 1M active learners globally.</span
+                  >
+                </a>
+                <a href="./404.html" class="news-item">
+                  <span class="news-date">MAR 20, 2024</span>
+                  <span class="news-title"
+                    >New AI Tutoring features launched in Beta.</span
+                  >
+                </a>
+                <a href="./404.html" class="news-item">
+                  <span class="news-date">FEB 28, 2024</span>
+                  <span class="news-title"
+                    >Partnership announced with Global EdTech.</span
+                  >
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Newsletter -->
+          <section class="newsletter-wrap">
+            <h2 class="footer-heading">Join the Circuit</h2>
+            <p
+              style="
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+                color: var(--text-muted);
+              "
+            >
+              Get exclusive access to the latest EdTech innovations.
+            </p>
+
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <div class="input-group">
+                <label for="email" class="visually-hidden">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="email-input"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit" class="submit-btn" id="submitBtn">
+                  SUBSCRIBE
+                </button>
+              </div>
+              <div
+                id="statusMsg"
+                class="status-msg"
+                role="status"
+                aria-live="polite"
+              ></div>
+
+              <!-- Success Animation Layer -->
+              <div id="success-animation">
+                <lottie-player
+                  id="confettiLottie"
+                  src="https://assets9.lottiefiles.com/packages/lf20_u4yrau.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 300px; height: 300px"
+                >
+                </lottie-player>
+              </div>
+            </form>
+
+            <address style="margin-top: 2rem">
+              <p>123 Silicon Tower, Cyber City</p>
+              <p>London, UK EC1A 1BB</p>
+              <p>
+                <a
+                  href="tel:+442079460123"
+                  style="color: inherit; text-decoration: none"
+                  >+44 20 7946 0123</a
+                >
+              </p>
+              <p>
+                <a
+                  href="mailto:hello@stackly.io"
+                  style="color: var(--accent); text-decoration: none"
+                  >hello@stackly.io</a
+                >
+              </p>
+            </address>
+
+            <div class="social-links">
+              <a
+                href="./404.html"
+                class="social-icon"
+                aria-label="Follow us on X (Twitter)"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="./404.html"
+                class="social-icon"
+                aria-label="Connect with us on LinkedIn"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="./404.html"
+                class="social-icon"
+                aria-label="Watch our videos on YouTube"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <!-- Legal Row -->
+        <div class="legal-row">
+          <p class="copyright">
+            &copy; 2024 STACKLY TECHNOLOGIES LTD. ALL RIGHTS RESERVED.
+          </p>
+          <div class="legal-links">
+            <a href="./404.html">PRIVACY POLICY</a>
+            <a href="./404.html">TERMS OF SERVICE</a>
+            <a href="./404.html">COOKIE SETTINGS</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./navy.js"></script>
+    <script src="./f2.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+      window.addEventListener("load", () => {
+        const tl = gsap.timeline();
+
+        // 1. Initial State
+        gsap.set(".block", { scaleX: 0, opacity: 0 });
+
+        // 2. The Animation Sequence
+        tl.to(".block", {
+          scaleX: 1,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "expo.out",
+        })
+          .to(
+            "#loader-brand",
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1.2,
+              startAt: { y: 40 },
+              ease: "power4.out",
+            },
+            "-=0.4"
+          )
+          .to(
+            "#loader-scan",
+            {
+              x: "200%",
+              duration: 1.5,
+              ease: "power2.inOut",
+            },
+            "-=1"
+          )
+          .to(
+            "#loader-status",
+            {
+              letterSpacing: "0.8em",
+              opacity: 0.8,
+              duration: 2,
+              ease: "power2.out",
+            },
+            "-=1.5"
+          )
+
+          // 3. Cinematic Exit
+          .to("#preloader", {
+            opacity: 0,
+            filter: "blur(20px)",
+            duration: 0.8,
+            ease: "power2.in",
+            onComplete: () => {
+              document.getElementById("preloader").style.display = "none";
+              if (typeof initHeroAnimations === "function")
+                initHeroAnimations();
+            },
+          });
+      });
+
+      // 2. HERO
+      function initHeroAnimations() {
+        const tl = gsap.timeline();
+        tl.from(".reveal-item", {
+          y: 40,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 1,
+          ease: "power4.out",
+        });
+
+        // Desktop only mouse move
+        if (window.innerWidth > 1024) {
+          document.addEventListener("mousemove", (e) => {
+            const { clientX, clientY } = e;
+            const xPos = (clientX / window.innerWidth - 0.5) * 40;
+            const yPos = (clientY / window.innerHeight - 0.5) * 40;
+
+            gsap.to(".hero-visual", {
+              x: xPos * 0.5,
+              y: yPos * 0.5,
+              duration: 2,
+              ease: "power2.out",
+            });
+            gsap.to(".parallax-layer", {
+              x: xPos,
+              y: yPos,
+              duration: 3,
+              ease: "power3.out",
+            });
+          });
+        }
+
+        gsap.to("#hero", {
+          scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+          scale: 0.95,
+          opacity: 0.5,
+          y: 50,
+        });
+      }
+
+      // 3. SCROLL REVEALS
+      gsap.utils.toArray(".glass-card").forEach((card) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 95%",
+            toggleActions: "play none none reverse",
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        });
+      });
+
+      // Testimonials Loop - Continuous
+      gsap.to(".testimonials-slider", {
+        xPercent: -30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".testimonials-slider",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+      });
+
+      // Lottie Assets
+      lottie.loadAnimation({
+        container: document.getElementById("lottie-hero-orb"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "https://assets3.lottiefiles.com/packages/lf20_m68YhS.json",
+      });
+
+      lottie.loadAnimation({
+        container: document.getElementById("lottie-ambient"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "https://assets1.lottiefiles.com/packages/lf20_u4j3Xv.json",
+      });
+
+      // Magnetic Buttons Logic (Desktop Only)
+      if (window.innerWidth > 1024) {
+        const buttons = document.querySelectorAll(".btn-magnetic");
+        buttons.forEach((btn) => {
+          btn.addEventListener("mousemove", (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            gsap.to(btn, {
+              x: x * 0.2,
+              y: y * 0.2,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          });
+          btn.addEventListener("mouseleave", () => {
+            gsap.to(btn, {
+              x: 0,
+              y: 0,
+              duration: 0.5,
+              ease: "elastic.out(1, 0.3)",
+            });
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

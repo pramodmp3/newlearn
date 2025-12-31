@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./contact2.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./assets/logooo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home.html" class="nav-link-desktop">HOME2</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./apps.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQ</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <!-- <li class="nav-item-desktop">
+            <a href="./contact.html" class="nav-link-desktop">CONTACT</a>
+          </li> -->
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home.html"
+          >
+            HOME2
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./apps.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQ
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <!-- <li class="nav-item-mobile">
+          <a href="./contact.html" class="nav-link-mobile">CONTACT</a>
+        </li> -->
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <div class="contact-page-container">
+      <h1 class="main-heading">Contact Stackly</h1>
+
+      <div class="content-grid">
+        <!-- LEFT COLUMN: Contact Form -->
+        <div class="contact-card">
+          <h2 class="form-title">Send Us a Message</h2>
+          <form action="./404.html">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                class="input-field"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="input-field"
+                placeholder="you@stackly.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                class="input-field"
+                placeholder="Inquiry about pricing, support, etc."
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                placeholder="Type your message here..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Submit Inquiry</button>
+          </form>
+        </div>
+
+        <!-- RIGHT COLUMN: Embedded Map -->
+        <div class="contact-card map-wrapper">
+          <iframe
+            class="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869736!2d-74.11976356499389!3d40.697663748722135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1700140000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Google Map of New York City"
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <footer class="stackly-footer reveal-item" id="stackly-footer">
+      <div class="footer-content">
+        <!-- Top Section: Logo, Links, Address, Social -->
+        <div class="footer-top">
+          <!-- 1. Logo/Brand Section -->
+          <div
+            class="logo-section footer-section reveal-item"
+            style="transition-delay: 0.2s"
+          >
+            <img src="./assets/logooo.webp" alt="" />
+            <p>
+              Your fast track to pharmaceutical delivery. Always reliable,
+              always on time.
+            </p>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div
+            class="links-section footer-section reveal-item"
+            style="transition-delay: 0.4s"
+          >
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="./home.html">HOME</a></li>
+              <li><a href="./apps.html">APPS</a></li>
+              <li><a href="./about2.html">ABOUT</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">CONTACT</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div
+            class="address-section footer-section reveal-item"
+            style="transition-delay: 0.6s"
+          >
+            <h3>Our Headquarters</h3>
+            <p>
+              <strong>STACKLY Inc.</strong><br />
+              1020 Innovation Drive,<br />
+              New York, NY 10001, USA<br />
+              <br />
+            </p>
+          </div>
+
+          <!-- 4. Social Media Icons -->
+          <div
+            class="social-section footer-section reveal-item"
+            style="transition-delay: 0.8s"
+          >
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Newsletter -->
+        <div class="footer-bottom reveal-item" style="transition-delay: 1s">
+          <h3>
+            <span style="color: var(--text-highlight)">Stay Updated</span> with
+            STACKLY
+          </h3>
+          <p>
+            Subscribe to our newsletter for exclusive offers and health tips.
+          </p>
+          <form class="newsletter-form" action="./404.html">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+
+          <!-- Copyright -->
+          <div class="copyright">
+            &copy; 2025 STACKLY Medicine Delivery. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Dashboard</title>
+    <!-- Use a modern, readable font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==================================== */
+      /* 1. CSS Variables (The Stackly Palette) */
+      /* ==================================== */
+      :root {
+        /* STACKLY Colors */
+        --primary-color: #7f00ff; /* Vibrant Purple */
+        --secondary-color: #ff6f61; /* Coral / Warm Orange */
+        --accent-color: #00d4ff; /* Electric Cyan */
+        --footer-bg: #1f2937; /* Deep Slate / Blue-Grey (not used, but defined) */
+        --text-light: #f9fafb; /* Soft White */
+        --text-dark: #1e293b; /* Dark Slate for readability */
+        --text-highlight: #ffd700; /* Bright Gold / Amber for highlights */
+        --shadow-light: rgba(0, 0, 0, 0.08);
+        --shadow-dark: rgba(0, 0, 0, 0.35);
+        --transition-speed: 0.5s;
+
+        /* Gradient colors */
+        --gradient-primary: linear-gradient(135deg, #7f00ff, #e100ff);
+        --gradient-secondary: linear-gradient(135deg, #ff6f61, #ffb347);
+        --gradient-accent: linear-gradient(45deg, #00d4ff, #00b3ff);
+        --gradient-button: linear-gradient(135deg, #ff6f61, #ffb347, #ffd700);
+      }
+
+      /* ==================================== */
+      /* 2. Base Styles & Layout */
+      /* ==================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--text-dark);
+        color: var(--text-light);
+        min-height: 100vh;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        padding-bottom: 2rem;
+        position: relative;
+      }
+
+      .dashboard-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        position: relative;
+        z-index: 10; /* Keep content above blobs */
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--text-light);
+        font-weight: 700;
+      }
+
+      /* ==================================== */
+      /* 3. Animations */
+      /* ==================================== */
+
+      /* Header Fade-In Animation */
+      @keyframes headerFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Content Fade-In Animation (for sections and cards) */
+      @keyframes contentFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Floating Blob Animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-30px) rotate(10deg);
+        }
+      }
+
+      /* ==================================== */
+      /* 4. Animated Background Blobs */
+      /* ==================================== */
+      .blob-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        opacity: 0.3;
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px); /* Soft glow effect */
+        animation: float 20s infinite ease-in-out;
+        opacity: 0.6;
+      }
+
+      /* Primary Blob */
+      .blob:nth-child(1) {
+        background: var(--primary-color);
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+
+      /* Secondary Blob */
+      .blob:nth-child(2) {
+        background: var(--secondary-color);
+        width: 300px;
+        height: 300px;
+        bottom: 20%;
+        right: 15%;
+        animation-delay: 4s;
+        animation-duration: 25s;
+      }
+
+      /* Accent Blob */
+      .blob:nth-child(3) {
+        background: var(--accent-color);
+        width: 500px;
+        height: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 8s;
+        animation-duration: 18s;
+      }
+
+      /* ==================================== */
+      /* 5. Header and Section Styles */
+      /* ==================================== */
+
+      .dashboard-header {
+        text-align: center;
+        padding: 3rem 0 2rem;
+        animation: headerFadeIn 1s ease-out forwards;
+      }
+
+      .dashboard-header h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        position: relative;
+        display: inline-block;
+      }
+
+      .dashboard-header h1::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+      }
+
+      .section {
+        padding: 2rem 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        border-left: 5px solid var(--accent-color);
+        padding-left: 1rem;
+        opacity: 0;
+        animation: contentFadeIn 0.8s ease-out 0.5s forwards;
+      }
+
+      /* ==================================== */
+      /* 6. Stats Cards Section */
+      /* ==================================== */
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .stat-card {
+        background-color: var(--text-dark);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 10px 15px var(--shadow-dark);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+        transition: transform var(--transition-speed) ease,
+          box-shadow var(--transition-speed) ease;
+        opacity: 0;
+        animation: contentFadeIn 0.8s ease-out forwards;
+      }
+
+      /* Staggered card animation */
+      .stat-card:nth-child(1) {
+        animation-delay: 0.6s;
+      }
+      .stat-card:nth-child(2) {
+        animation-delay: 0.7s;
+      }
+      .stat-card:nth-child(3) {
+        animation-delay: 0.8s;
+      }
+      .stat-card:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 30px var(--shadow-dark),
+          0 0 15px rgba(255, 255, 255, 0.1);
+      }
+
+      /* Card accent border */
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 100%;
+        background: var(--primary-color);
+        transition: background var(--transition-speed);
+      }
+
+      .stat-card:nth-child(2)::before {
+        background: var(--secondary-color);
+      }
+      .stat-card:nth-child(3)::before {
+        background: var(--accent-color);
+      }
+      .stat-card:nth-child(4)::before {
+        background: var(--gradient-primary);
+      }
+
+      .stat-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .stat-icon {
+        font-size: 2.5rem;
+        background: var(--primary-color);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        line-height: 1;
+        /* Placeholder styles - using emojis as icons */
+      }
+
+      .stat-card:nth-child(2) .stat-icon {
+        background: var(--secondary-color);
+      }
+      .stat-card:nth-child(3) .stat-icon {
+        background: var(--accent-color);
+      }
+      .stat-card:nth-child(4) .stat-icon {
+        background: var(--text-highlight);
+        color: var(--text-dark);
+      }
+
+      .stat-info .metric-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--text-highlight);
+      }
+
+      .stat-info .metric-label {
+        font-size: 1rem;
+        color: var(--text-light);
+        opacity: 0.7;
+      }
+
+      /* ==================================== */
+      /* 7. Progress Section (Animated Bars) */
+      /* ==================================== */
+
+      .progress-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        opacity: 0;
+        animation: contentFadeIn 0.8s ease-out 1s forwards;
+      }
+
+      .progress-item {
+        background-color: var(--footer-bg); /* Use deep slate for background */
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px var(--shadow-light);
+      }
+
+      .progress-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .progress-bar-container {
+        height: 12px;
+        background-color: var(--text-dark);
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: inset 0 1px 3px var(--shadow-dark);
+      }
+
+      .progress-bar-fill {
+        height: 100%;
+        width: 0; /* Initial state, JS sets the final width */
+        border-radius: 6px;
+        transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth animation */
+        background: var(--gradient-primary); /* Default gradient */
+      }
+
+      /* Color Coding */
+      .progress-bar-fill[data-color="primary"] {
+        background: var(--gradient-primary);
+      }
+      .progress-bar-fill[data-color="secondary"] {
+        background: var(--gradient-secondary);
+      }
+      .progress-bar-fill[data-color="accent"] {
+        background: var(--gradient-accent);
+      }
+
+      /* ==================================== */
+      /* 8. Recent Activity Section */
+      /* ==================================== */
+
+      .activity-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+        list-style: none;
+        opacity: 0;
+        animation: contentFadeIn 0.8s ease-out 1.2s forwards;
+      }
+
+      .activity-item {
+        background-color: var(--footer-bg);
+        padding: 1rem 1.5rem;
+        border-radius: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 5px solid transparent;
+        cursor: pointer;
+        transition: all var(--transition-speed) ease;
+      }
+
+      .activity-item:hover {
+        background-color: var(--footer-bg);
+        border-left-color: var(--accent-color);
+        transform: translateX(5px);
+        box-shadow: 0 8px 15px var(--shadow-dark);
+      }
+
+      .activity-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .activity-course {
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .activity-timestamp {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        opacity: 0.6;
+      }
+
+      .activity-badge {
+        padding: 0.3rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-dark);
+      }
+
+      .badge-completed {
+        background-color: var(--accent-color);
+      }
+      .badge-new {
+        background-color: var(--secondary-color);
+      }
+      .badge-in-progress {
+        background-color: var(--text-highlight);
+      }
+
+      /* ==================================== */
+      /* 9. Responsiveness (Mobile First) */
+      /* ==================================== */
+
+      @media (max-width: 768px) {
+        .dashboard-header {
+          padding: 2rem 0 1rem;
+        }
+
+        .dashboard-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        /* Stack cards vertically (default behavior due to minmax) */
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .stat-info .metric-number {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated Gradient Blobs Container -->
+    <div class="blob-container">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+    </div>
+
+    <div class="dashboard-container">
+      <!-- Dashboard Header -->
+      <header class="dashboard-header">
+        <h1>Stackly Dashboard</h1>
+      </header>
+
+      <!-- 1. Stats / Metrics Section -->
+      <section class="section">
+        <h2 class="section-title">Your Metrics</h2>
+        <div class="stats-grid">
+          <!-- Card 1: Courses Completed -->
+          <div class="stat-card">
+            <div class="stat-content">
+              <span class="stat-icon" style="background: var(--primary-color)"
+                >🏆</span
+              >
+              <div class="stat-info">
+                <div class="metric-number">14</div>
+                <div class="metric-label">Courses Completed</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Active Courses -->
+          <div class="stat-card">
+            <div class="stat-content">
+              <span class="stat-icon" style="background: var(--secondary-color)"
+                >🔥</span
+              >
+              <div class="stat-info">
+                <div class="metric-number">3</div>
+                <div class="metric-label">Active Courses</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Certificates Earned -->
+          <div class="stat-card">
+            <div class="stat-content">
+              <span class="stat-icon" style="background: var(--accent-color)"
+                >📜</span
+              >
+              <div class="stat-info">
+                <div class="metric-number">5</div>
+                <div class="metric-label">Certificates Earned</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Total Hours Learned -->
+          <div class="stat-card">
+            <div class="stat-content">
+              <span
+                class="stat-icon"
+                style="background: var(--gradient-primary)"
+                >⏱️</span
+              >
+              <div class="stat-info">
+                <div class="metric-number">185.5</div>
+                <div class="metric-label">Total Hours Learned</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Course Progress / Charts Section -->
+      <section class="section">
+        <h2 class="section-title">Course Progress</h2>
+        <div class="progress-list">
+          <!-- Progress Item 1 -->
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>Advanced JavaScript Frameworks</span>
+              <span class="text-highlight">85%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div
+                class="progress-bar-fill"
+                data-progress="85"
+                data-color="primary"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Progress Item 2 -->
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>Cloud Architecture Fundamentals</span>
+              <span class="text-highlight">40%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div
+                class="progress-bar-fill"
+                data-progress="40"
+                data-color="secondary"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Progress Item 3 -->
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>Python for Data Science</span>
+              <span class="text-highlight">98%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div
+                class="progress-bar-fill"
+                data-progress="98"
+                data-color="accent"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Progress Item 4 -->
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>Database Design (SQL/NoSQL)</span>
+              <span class="text-highlight">62%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div
+                class="progress-bar-fill"
+                data-progress="62"
+                data-color="primary"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Recent Activity / Notifications Section -->
+      <section class="section">
+        <h2 class="section-title">Recent Activity</h2>
+        <ul class="activity-list">
+          <!-- Activity Item 1 -->
+          <li class="activity-item">
+            <div class="activity-details">
+              <div class="activity-course">
+                Quiz 4 passed: Cloud Fundamentals
+              </div>
+              <div class="activity-timestamp">5 minutes ago</div>
+            </div>
+            <span class="activity-badge badge-completed">Completed</span>
+          </li>
+
+          <!-- Activity Item 2 -->
+          <li class="activity-item">
+            <div class="activity-details">
+              <div class="activity-course">
+                New lecture unlocked: Advanced JavaScript
+              </div>
+              <div class="activity-timestamp">2 hours ago</div>
+            </div>
+            <span class="activity-badge badge-new">New</span>
+          </li>
+
+          <!-- Activity Item 3 -->
+          <li class="activity-item">
+            <div class="activity-details">
+              <div class="activity-course">
+                Submitted Project: Data Science Capstone
+              </div>
+              <div class="activity-timestamp">Yesterday at 4:30 PM</div>
+            </div>
+            <span class="activity-badge badge-in-progress">Pending</span>
+          </li>
+
+          <!-- Activity Item 4 -->
+          <li class="activity-item">
+            <div class="activity-details">
+              <div class="activity-course">
+                Started new course: C++ Game Development
+              </div>
+              <div class="activity-timestamp">3 days ago</div>
+            </div>
+            <span class="activity-badge badge-new">Started</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Script to trigger Progress Bar fill animation via CSS Transition -->
+    <script>
+      // Set up the progress bars to transition from 0 to their value on load.
+      // This is necessary to drive the CSS 'width' property and trigger the transition.
+      document.addEventListener("DOMContentLoaded", () => {
+        // Find all progress bar fill elements
+        const progressBars = document.querySelectorAll(".progress-bar-fill");
+
+        progressBars.forEach((bar) => {
+          // Get the target percentage from the data-progress attribute
+          const value = bar.getAttribute("data-progress");
+
+          // Wait a moment to ensure the initial 'width: 0' state is rendered
+          // before setting the target width to trigger the transition.
+          setTimeout(() => {
+            // Set the width to the target value (e.g., '85%')
+            bar.style.width = `${value}%`;
+          }, 100);
+        });
+      });
+    </script>
+  </body>
+</html>

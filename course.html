@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Courses</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Inter Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./course.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./assets/logooo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./index.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./home.html">HOME2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./course.html" class="nav-link-desktop">COURSES</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./dash.html" class="nav-link-desktop">DASHBOARD</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./contact.html" class="nav-link-desktop">CONTACT</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./login.html" class="shop-btn-link">LOGIN</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./index.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./home.html">HOME2</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./course.html" class="nav-link-mobile">COURSES</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./dash.html"
+          >
+            DASHBOARD
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./contact.html" class="nav-link-mobile">CONTACT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./login.html" class="shop-btn-mobile">LOGIN</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Animated Background Shapes -->
+    <div class="background-wrapper">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+
+    <div class="page-content">
+      <header>
+        <h1 class="main-heading">Our Courses</h1>
+      </header>
+
+      <!-- Course 1: Image Left (Default Flex) -->
+      <section class="course-section">
+        <div class="course-section-image-wrapper">
+          <img
+            src="./assets/quant.webp"
+            class="section-image"
+            alt="Image for Full Stack Architect course"
+          />
+        </div>
+        <div class="course-section-content">
+          <div class="course-badge badge-advanced">ADVANCED PROGRAM</div>
+          <h3 class="course-title">Certified Full Stack Architect</h3>
+          <p class="course-description">
+            The most comprehensive and job-focused program. Master both
+            front-end (React/Vue) and back-end (Node/Python) development,
+            deployment, and cloud-native architecture design for high-scale
+            applications.
+          </p>
+          <a href="./404.html" class="action-button">Explore Program</a>
+        </div>
+      </section>
+
+      <!-- Course 2: Image Right (Reversed Flex) -->
+      <section class="course-section course-section-reverse">
+        <div class="course-section-image-wrapper">
+          <img
+            src="./assets/dev.webp"
+            class="section-image"
+            alt="Image for Data Science course"
+          />
+        </div>
+        <div class="course-section-content">
+          <div class="course-badge badge-intermediate">INTERMEDIATE</div>
+          <h3 class="course-title">Core Data Science & ML Engineering</h3>
+          <p class="course-description">
+            Dive into the world of predictive modeling, data visualization, and
+            statistical analysis using Python, NumPy, Pandas, and Scikit-learn.
+            Hands-on projects with real-world datasets included.
+          </p>
+          <a href="./404.html" class="action-button">Explore Course</a>
+        </div>
+      </section>
+
+      <!-- Course 3: Image Left (Default Flex) -->
+      <section class="course-section">
+        <div class="course-section-image-wrapper">
+          <img
+            src="./assets/home.webp"
+            class="section-image"
+            alt="Image for Cloud Fundamentals course"
+          />
+        </div>
+        <div class="course-section-content">
+          <div class="course-badge badge-beginner">BEGINNER</div>
+          <h3 class="course-title">Cloud Computing Fundamentals (AWS/Azure)</h3>
+          <p class="course-description">
+            An essential course covering cloud infrastructure basics, compute
+            services, storage, and networking principles across major cloud
+            providers. Perfect for career starters.
+          </p>
+          <a href="./404.html" class="action-button">Explore Course</a>
+        </div>
+      </section>
+
+      <!-- Course 4: Image Right (Reversed Flex) -->
+      <section class="course-section course-section-reverse">
+        <div class="course-section-image-wrapper">
+          <img
+            src="./assets/re.webp"
+            class="section-image"
+            alt="Image for Frontend Development course"
+          />
+        </div>
+        <div class="course-section-content">
+          <div class="course-badge badge-intermediate">INTERMEDIATE</div>
+          <h3 class="course-title">Advanced Frontend Development with React</h3>
+          <p class="course-description">
+            Build complex, single-page applications using modern React hooks,
+            state management (Context/Redux), routing, and testing best
+            practices.
+          </p>
+          <a href="./404.html" class="action-button">Explore Course</a>
+        </div>
+      </section>
+    </div>
+    <footer class="stackly-footer reveal-item" id="stackly-footer">
+      <div class="footer-content">
+        <!-- Top Section: Logo, Links, Address, Social -->
+        <div class="footer-top">
+          <!-- 1. Logo/Brand Section -->
+          <div
+            class="logo-section footer-section reveal-item"
+            style="transition-delay: 0.2s"
+          >
+            <img src="./assets/logooo.webp" alt="" />
+            <p>
+              Your fast track to pharmaceutical delivery. Always reliable,
+              always on time.
+            </p>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div
+            class="links-section footer-section reveal-item"
+            style="transition-delay: 0.4s"
+          >
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="./index.html">HOME</a></li>
+              <li><a href="./course.html">COURSES</a></li>
+              <li><a href="./about.html">ABOUT</a></li>
+              <li><a href="./blog.html">BLOG</a></li>
+              <li><a href="./dash.html">DASHBOARD</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div
+            class="address-section footer-section reveal-item"
+            style="transition-delay: 0.6s"
+          >
+            <h3>Our Headquarters</h3>
+            <p>
+              <strong>STACKLY Inc.</strong><br />
+              1020 Innovation Drive,<br />
+              New York, NY 10001, USA<br />
+              <br />
+            </p>
+          </div>
+
+          <!-- 4. Social Media Icons -->
+          <div
+            class="social-section footer-section reveal-item"
+            style="transition-delay: 0.8s"
+          >
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Newsletter -->
+        <div class="footer-bottom reveal-item" style="transition-delay: 1s">
+          <h3>
+            <span style="color: var(--text-highlight)">Stay Updated</span> with
+            STACKLY
+          </h3>
+          <p>
+            Subscribe to our newsletter for exclusive offers and health tips.
+          </p>
+          <form class="newsletter-form" action="./404.html">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+
+          <!-- Copyright -->
+          <div class="copyright">
+            &copy; 2025 STACKLY Medicine Delivery. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+  </body>
+</html>

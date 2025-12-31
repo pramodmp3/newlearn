@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly - Sign Up</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==================================== */
+      /* 1. CSS Variables (The Stackly Palette) */
+      /* ==================================== */
+      :root {
+        /* STACKLY Colors */
+        --primary-color: #7f00ff; /* Vibrant Purple */
+        --secondary-color: #ff6f61; /* Coral / Warm Orange */
+        --accent-color: #00d4ff; /* Electric Cyan */
+        --footer-bg: #1f2937; /* Deep Slate / Blue-Grey */
+        --text-light: #f9fafb; /* Soft White */
+        --text-dark: #1e293b; /* Dark Slate for readability */
+        --text-highlight: #ffd700; /* Bright Gold / Amber for highlights */
+        --shadow-light: rgba(0, 0, 0, 0.08);
+        --shadow-dark: rgba(0, 0, 0, 0.35);
+        --transition-speed: 0.3s;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, #7f00ff, #e100ff);
+        --gradient-secondary: linear-gradient(135deg, #ff6f61, #ffb347);
+        --gradient-accent: linear-gradient(45deg, #00d4ff, #00b3ff);
+        --gradient-button: linear-gradient(135deg, #ff6f61, #ffb347, #ffd700);
+      }
+
+      /* ==================================== */
+      /* 2. Base & Utility Styles */
+      /* ==================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Inter", sans-serif;
+        color: var(--text-dark);
+        overflow: hidden; /* Prevent background scroll/horizontal overflow */
+      }
+
+      /* ==================================== */
+      /* 3. Animated Background Blobs */
+      /* ==================================== */
+
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--footer-bg); /* Use the deep slate as a base */
+      }
+
+      .blob {
+        position: absolute;
+        opacity: 0.8;
+        border-radius: 50%;
+        filter: blur(80px); /* Soft blur for the floating effect */
+        animation: moveBlob 15s infinite alternate ease-in-out;
+        z-index: 0;
+      }
+
+      .blob:nth-child(1) {
+        width: 400px;
+        height: 400px;
+        background: var(--gradient-primary);
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+
+      .blob:nth-child(2) {
+        width: 300px;
+        height: 300px;
+        background: var(--gradient-secondary);
+        bottom: -50px;
+        right: -50px;
+        animation-delay: 5s;
+      }
+
+      .blob:nth-child(3) {
+        width: 200px;
+        height: 200px;
+        background: var(--gradient-accent);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 10s;
+      }
+
+      @keyframes moveBlob {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(30vw, 20vh) scale(1.1);
+        }
+        66% {
+          transform: translate(-10vw, -15vh) scale(0.9);
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+      }
+
+      /* ==================================== */
+      /* 4. Signup Card Layout & Entrance */
+      /* ==================================== */
+      .signup-container {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 20px;
+      }
+
+      .signup-card {
+        width: 100%;
+        max-width: 420px;
+        padding: 40px;
+        background: var(--text-light);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px var(--shadow-dark),
+          0 4px 10px var(--shadow-light);
+
+        /* Card Entrance Animation */
+        opacity: 0;
+        transform: translateY(30px);
+        animation: cardEntrance 0.8s ease-out forwards;
+        animation-delay: 0.2s;
+      }
+
+      @keyframes cardEntrance {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ==================================== */
+      /* 5. Card Content (Logo, Form) */
+      /* ==================================== */
+      .logo-text {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 30px;
+        line-height: 1;
+      }
+
+      .logo-text span {
+        color: var(--secondary-color);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: var(--text-dark);
+        transition: border-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      /* Input Focus Glow Animation */
+      .input-field:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3); /* Accent color glow */
+      }
+
+      /* ==================================== */
+      /* 6. Button & Link Styles */
+      /* ==================================== */
+      .signup-button {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        margin-top: 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-light);
+        background: var(--gradient-button);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform var(--transition-speed);
+        box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+      }
+
+      /* Button Hover Scale Animation */
+      .signup-button:hover {
+        transform: scale(1.02);
+      }
+
+      /* Button Glow/Shine Effect */
+      .signup-button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          /* Shine color */ transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .signup-button:hover::after {
+        left: 100%;
+      }
+
+      .login-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+        padding: 5px 0; /* Add vertical padding for better touch targets */
+      }
+
+      .login-link:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
+      /* ==================================== */
+      /* 7. Responsiveness (Mobile Adaptation) */
+      /* ==================================== */
+      @media (max-width: 600px) {
+        .signup-card {
+          padding: 30px 25px; /* Smaller padding on mobile */
+          margin: 10px;
+        }
+
+        .logo-text {
+          font-size: 2rem; /* Smaller logo */
+          margin-bottom: 20px;
+        }
+
+        .signup-button {
+          font-size: 1rem;
+          padding: 12px;
+        }
+
+        .input-field {
+          padding: 10px 12px;
+          font-size: 0.95rem;
+        }
+
+        /* Adjust blob sizes and positions for smaller screens */
+        .blob:nth-child(1) {
+          width: 250px;
+          height: 250px;
+          top: -50px;
+          left: -50px;
+        }
+        .blob:nth-child(2) {
+          width: 180px;
+          height: 180px;
+          bottom: -30px;
+          right: -30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="background">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+    </div>
+
+    <!-- Centered Signup Card Container -->
+    <div class="signup-container">
+      <div class="signup-card">
+        <h1 class="logo-text">Stack<span>ly</span></h1>
+        <form action="./404.html">
+          <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input
+              type="text"
+              id="full-name"
+              class="input-field"
+              placeholder="Jane Doe"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              class="input-field"
+              placeholder="you@stackly.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="input-field"
+              placeholder="Create a strong password"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              class="input-field"
+              placeholder="Re-enter password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="signup-button">Create Account</button>
+        </form>
+
+        <a href="./login.html" class="login-link"
+          >Already have an account? Login</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

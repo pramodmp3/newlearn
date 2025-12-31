@@ -1,0 +1,1014 @@
+/* Configure Tailwind for the Inter font and color palette (consistent with previous pages) */
+:root {
+  --primary-blue: #3b82f6; /* Blue 500 */
+  --accent-purple: #8b5cf6; /* Violet 500 */
+  --light-bg: #f7f9fb;
+  --dark-text: #1f2937;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--light-bg);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* --- Background Animation & Decorative Shapes --- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--light-bg), #e0e7ff, #f3f4f6);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+  z-index: -2;
+  opacity: 0.5;
+}
+/* Configure Tailwind for the Inter font */
+:root {
+  --primary-blue: #3b82f6; /* Blue 500 */
+  --accent-purple: #8b5cf6; /* Violet 500 */
+  --light-bg: #f7f9fb;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--light-bg);
+  overflow-x: hidden;
+  position: relative;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* --- Background Animation & Decorative Shapes --- */
+
+/* 1. Subtle Gradient Background Shift */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--light-bg), #e0e7ff, #f3f4f6);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+  z-index: -2;
+  opacity: 0.5;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* --- 1. Variables and Global Styles --- */
+:root {
+  /* NEW COLOR PALETTE: Black/Red/Electric Yellow (High Contrast/Futuristic) */
+  --primary-bg: #000000; /* True Black */
+  --secondary-bg: #111111; /* Very Dark Grey/Off-Black */
+  --accent-color: #ff0000; /* Primary Red (Bold Accent) */
+  --accent-light: #ffff00; /* Electric Yellow (Secondary Accent/Highlight) */
+  --text-color: #f0f0f0; /* Off-White for high contrast */
+
+  /* Mobile/Hamburger specific colors (must be high contrast for the white menu) */
+  --clr-hamburger-dark-blue: #ff0000; /* Red line for dark header background */
+  --clr-mobile-dark-text: #111111; /* Very dark text for white menu background */
+  --soft-shadow: 0 8px 30px rgba(255, 0, 0, 0.4); /* Red Shadow */
+  --glass-bg: rgba(
+    255,
+    0,
+    0,
+    0.05
+  ); /* Very subtle glass effect with Red base */
+  --font-family: "Inter", sans-serif;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: radial-gradient(
+      circle at top left,
+      var(--primary-bg) 0%,
+      var(--secondary-bg) 100%
+    )
+    no-repeat;
+  color: var(--text-color);
+  /* **REQUIRED STICKY FOOTER SETUP** */
+  display: flex; /* Make body a flex container */
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure it takes up full viewport height */
+  /* **END REQUIRED STICKY FOOTER SETUP** */
+  overflow-x: hidden;
+  perspective: 1px;
+  padding-top: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+/* ---------------- HEADER (Animated Gradient) ---------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  /* Header Background: Subtle Red Glass */
+  background: var(--glass-bg);
+  background-size: 300% 300%;
+  animation: headerGradient 12s ease infinite;
+
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 1000;
+}
+
+@keyframes headerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Logo Container */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+  z-index: 1001;
+}
+
+.logo-img {
+  width: 150px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------------- DESKTOP NAVIGATION ---------------- */
+.nav-links-desktop {
+  display: none;
+  margin-left: auto;
+}
+
+.nav-list-desktop {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-item-desktop {
+  position: relative;
+}
+
+/* Base Link Color: Inherits from body (text-color) */
+.nav-link-desktop {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  color: var(--text-color); /* Adjusted to use text-color for dark background */
+}
+
+/* Dropdown caret */
+.nav-item-desktop[aria-haspopup="true"] > .nav-link-desktop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-item-desktop[aria-haspopup="true"] > .nav-link-desktop::after {
+  content: "\25BE";
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--accent-light); /* Electric Yellow Caret */
+  transition: transform var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+  transform: translateY(1px);
+}
+
+/* Hover glow */
+.nav-item-desktop:hover > .nav-link-desktop {
+  color: var(--text-color);
+  transform: none !important;
+  text-shadow: 0 0 8px var(--accent-color); /* Red Glow */
+}
+
+/* FIXED — No vertical movement */
+.nav-item-desktop:hover > .nav-link-desktop {
+  color: var(--text-color);
+  text-shadow: 0 0 8px var(--accent-color);
+  transform: none;
+}
+
+.nav-item-desktop:hover > .nav-link-desktop::after {
+  color: var(--accent-light); /* Yellow Caret on Hover */
+  transform: rotate(180deg) translateY(1px);
+}
+
+/* Desktop Dropdown */
+.dropdown-desktop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--secondary-bg); /* Dark background for dropdown */
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 180px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+}
+
+.nav-item-desktop:hover > .dropdown-desktop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-desktop a {
+  padding: 12px 20px;
+  display: block;
+  color: var(--text-color); /* Light text on dark dropdown */
+  transition: background var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+/* Gradient hover (Red/Yellow themed) */
+.dropdown-desktop a:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--accent-light)
+  ); /* Red to Yellow gradient */
+  color: var(--secondary-bg); /* Dark text on bright hover */
+}
+/* Desktop SHOP Button */
+.shop-btn-desktop .shop-btn-link {
+  padding: 10px 18px;
+  font-weight: 700;
+  color: var(--secondary-bg); /* Dark text on bright button */
+  border-radius: 6px;
+  /* Updated Button Gradient: Red to Yellow */
+  background: linear-gradient(135deg, #ff0000, #ff8c00, #ffff00);
+  background-size: 200% 200%;
+  animation: shopBtnGradient 6s ease infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.shop-btn-desktop .shop-btn-link:hover {
+  transform: scale(1.05);
+  box-shadow: var(--soft-shadow);
+}
+
+/* Button gradient animation (kept the same, but colors change) */
+@keyframes shopBtnGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ---------------- MOBILE NAV / HAMBURGER ---------------- */
+.menu-toggle {
+  display: none;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 1010;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.menu-toggle-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  /* Red hamburger lines on dark header */
+  background: var(--clr-hamburger-dark-blue);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.35s ease, top 0.35s ease;
+}
+
+.menu-toggle-line:nth-child(1) {
+  top: 6px;
+}
+.menu-toggle-line:nth-child(2) {
+  top: 14px;
+}
+.menu-toggle-line:nth-child(3) {
+  top: 22px;
+}
+
+.menu-toggle.open .menu-toggle-line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 14px;
+}
+.menu-toggle.open .menu-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open .menu-toggle-line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 14px;
+}
+
+/* ---------------- MOBILE MENU ---------------- */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Solid White Background */
+  background: #ffffff;
+  background-size: 300% 300%;
+
+  padding-top: 120px;
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.7, 0, 0.3, 1);
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.nav-mobile.open {
+  transform: translateY(0);
+}
+
+.nav-list-mobile {
+  list-style: none;
+  padding: 0 20px;
+}
+
+.nav-item-mobile {
+  /* Subtle border change using accent-color */
+  border-bottom: 1px solid rgba(255, 0, 0, 0.4);
+}
+
+/* Base Mobile Link Color: Dark Text */
+.nav-link-mobile {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--clr-mobile-dark-text);
+  cursor: pointer;
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-link-mobile:hover {
+  color: var(--accent-color); /* Red Accent */
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red shadow for light background */
+}
+
+/* Mobile dropdown arrow */
+.dropdown-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  border: solid var(--clr-mobile-dark-text);
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  transform: rotate(45deg);
+  transition: transform var(--transition-speed) ease;
+}
+
+.dropdown-toggle.active .dropdown-arrow {
+  transform: rotate(135deg);
+}
+
+.dropdown-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  padding-left: 0;
+}
+
+.dropdown-mobile.open {
+  max-height: 200px;
+  padding-bottom: 10px;
+}
+
+.dropdown-mobile a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: var(--clr-mobile-dark-text);
+  transition: color var(--transition-speed) ease,
+    background var(--transition-speed) ease;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.dropdown-mobile a:hover {
+  color: var(--accent-color); /* Red Accent */
+  /* Using a subtle light background hover for white menu */
+  background-color: rgba(255, 0, 0, 0.05);
+}
+/* Mobile SHOP Button */
+.shop-btn-mobile {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--secondary-bg) !important; /* Dark text on bright button */
+
+  /* Updated Button Gradient: Red to Yellow */
+  background: linear-gradient(135deg, #ff0000, #ff8c00, #ffff00);
+  background-size: 200% 200%;
+  animation: shopBtnGradient 6s ease infinite;
+
+  text-align: center;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.shop-btn-mobile:hover {
+  box-shadow: var(--soft-shadow);
+  transform: scale(1.05);
+}
+
+/* Overlay for Mobile */
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(4px);
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .nav-links-desktop {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-links-desktop {
+    display: block;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .nav-mobile {
+    display: none;
+  }
+}
+
+.floating-shape {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+  animation: float 15s ease-in-out infinite;
+  z-index: -1;
+}
+
+.shape-1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+  transform: scale(1.2) rotate(0deg);
+}
+.shape-2 {
+  top: 40%;
+  right: 15%;
+  animation-delay: 4s;
+  transform: scale(0.9) rotate(45deg);
+  border-radius: 20%;
+  background: rgba(59, 130, 246, 0.1);
+}
+.shape-3 {
+  bottom: 20%;
+  left: 25%;
+  animation-delay: 8s;
+  transform: scale(1.5) rotate(-30deg);
+}
+.shape-4 {
+  top: 80%;
+  right: 40%;
+  animation-delay: 12s;
+  transform: scale(1.1) rotate(60deg);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+/* --- Entrance Animation Class (for cards and sections) --- */
+.section-animate {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.section-animate.appear-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- App Card Hover Effect --- */
+.app-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.app-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Animated Button Style --- */
+.btn-animated {
+  transition: background-color 0.3s ease, transform 0.15s ease,
+    box-shadow 0.3s ease;
+  background-color: var(--accent-purple);
+}
+.btn-animated:hover {
+  background-color: #6d28d9; /* Deeper purple */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(139, 92, 246, 0.6);
+}
+.btn-animated:active {
+  transform: translateY(0);
+}
+
+/* Styling for the Process Step connector line */
+.process-flow-line {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  bottom: 20px;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    var(--primary-blue),
+    var(--accent-purple)
+  );
+  z-index: -1;
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  /* STACKLY Colors - New Deep Teal/Emerald Green Palette */
+  --primary-color: #008080; /* Deep Teal */
+  --secondary-color: #3cb371; /* Medium Sea Green / Emerald */
+  --accent-color: #40e0d0; /* Turquoise / Vibrant Accent */
+  --footer-bg: #10212b; /* Very Dark Teal-Blue / Near Black */
+  --text-light: #f0fff0; /* Honeydew / Off-White */
+  --text-dark: #10212b; /* Dark Teal-Blue for readability */
+  --text-highlight: #ffdead; /* Navajo White / Light Orange-Gold for highlights */
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-dark: rgba(0, 0, 0, 0.5); /* Increased dark shadow opacity */
+  --transition-speed: 0.3s;
+
+  /* Gradient colors */
+  --gradient-primary: linear-gradient(
+    135deg,
+    #008080,
+    #00ced1
+  ); /* Deep Teal → Dark Turquoise gradient */
+  --gradient-secondary: linear-gradient(
+    135deg,
+    #3cb371,
+    #66cdaa
+  ); /* Emerald → Medium Aquamarine gradient */
+  --gradient-accent: linear-gradient(
+    45deg,
+    #40e0d0,
+    #008080
+  ); /* Turquoise → Deep Teal gradient */
+  --gradient-button: linear-gradient(
+    135deg,
+    #3cb371,
+    #66cdaa,
+    #ffdead
+  ); /* Emerald → Aquamarine → Light Gold gradient for buttons */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--text-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+/* CSS Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #0f172a; /* Keeping original background for context outside footer, but could use var(--text-dark) */
+  padding-top: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* =========================================
+    2. Footer Container & Animation
+========================================= */
+.stackly-footer {
+  background-color: var(--footer-bg);
+  color: var(--text-light);
+  padding: 60px 20px 20px;
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.stackly-footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  filter: blur(100px);
+  animation: moveGradient 20s linear infinite alternate;
+  z-index: 0;
+}
+
+@keyframes moveGradient {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(20px, 40px) rotate(360deg);
+  }
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* default center on mobile */
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+    3. Footer Top Grid
+========================================= */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Headings */
+.footer-section h3 {
+  font-size: 1.25rem;
+  color: var(--text-highlight);
+  margin-bottom: 15px;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 10px;
+}
+
+/* =========================================
+    4. Logo & Links
+========================================= */
+/* =========================================
+    Footer Logo Section
+========================================= */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center on mobile */
+  text-align: center;
+  gap: 10px;
+}
+
+.logo-section img {
+  max-width: 150px; /* adjust logo size */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-section p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  max-width: 250px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+/* Optional reveal animation delay */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal-item.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Desktop adjustments */
+@media (min-width: 768px) {
+  .logo-section {
+    align-items: flex-start; /* align left on desktop */
+    text-align: left;
+  }
+
+  .logo-section p {
+    max-width: 300px;
+    margin: 0; /* align with logo */
+  }
+}
+
+.links-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* default center on mobile */
+  gap: 8px;
+}
+
+.links-section ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+}
+
+.links-section ul li a:hover {
+  color: var(--secondary-color); /* Updated hover color */
+  transform: translateX(5px);
+}
+
+/* =========================================
+    5. Address Section
+========================================= */
+.address-section p {
+  margin: 5px 0;
+  line-height: 1.6;
+}
+.address-section strong {
+  color: var(--text-highlight);
+  font-weight: 600;
+}
+
+/* =========================================
+    6. Social Icons
+========================================= */
+.social-icons {
+  display: flex;
+  justify-content: center; /* default center */
+  gap: 15px;
+}
+
+.social-icons a {
+  color: var(--text-light);
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+  background: var(--gradient-primary);
+  color: var(--text-light);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* =========================================
+    7. Newsletter Section
+========================================= */
+.footer-bottom {
+  padding-top: 30px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-form input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: none;
+  background: transparent;
+  color: var(--text-dark);
+  font-size: 1rem;
+  border-radius: 8px;
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--text-light);
+  cursor: pointer;
+  background: var(--gradient-button);
+  background-size: 300% 300%;
+  transition: all var(--transition-speed) ease;
+}
+
+.newsletter-form button:hover {
+  opacity: 0.9;
+  transform: scale(0.98);
+}
+
+/* =========================================
+    8. Copyright
+========================================= */
+.copyright {
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+    9. Scroll-to-Reveal State
+========================================= */
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* =========================================
+    10. Media Queries
+========================================= */
+
+/* Mobile: stack all footer content & center */
+@media (max-width: 767px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .links-section ul {
+    align-items: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+}
+
+/* Desktop: flex-start alignment */
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+    gap: 50px;
+  }
+
+  .links-section ul {
+    align-items: flex-start;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+
+  .newsletter-form {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .process-flow-line {
+    left: 50%;
+    top: 50%;
+    height: 4px;
+    width: calc(100% - 16rem);
+    background: linear-gradient(
+      to right,
+      var(--primary-blue),
+      var(--accent-purple)
+    );
+  }
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly - 404 Not Found</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==================================== */
+      /* 1. CSS Variables (The Stackly Palette) */
+      /* ==================================== */
+      :root {
+        /* STACKLY Colors */
+        --primary-color: #7f00ff; /* Vibrant Purple */
+        --secondary-color: #ff6f61; /* Coral / Warm Orange */
+        --accent-color: #00d4ff; /* Electric Cyan */
+        --footer-bg: #1f2937; /* Deep Slate / Blue-Grey */
+        --text-light: #f9fafb; /* Soft White */
+        --text-dark: #1e293b; /* Dark Slate for readability */
+        --text-highlight: #ffd700; /* Bright Gold / Amber for highlights */
+        --shadow-light: rgba(0, 0, 0, 0.08);
+        --shadow-dark: rgba(0, 0, 0, 0.35);
+        --transition-speed: 0.3s;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, #7f00ff, #e100ff);
+        --gradient-secondary: linear-gradient(135deg, #ff6f61, #ffb347);
+        --gradient-accent: linear-gradient(45deg, #00d4ff, #00b3ff);
+        --gradient-button: linear-gradient(135deg, #ff6f61, #ffb347, #ffd700);
+      }
+
+      /* ==================================== */
+      /* 2. Base & Utility Styles */
+      /* ==================================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Inter", sans-serif;
+        color: var(--text-light);
+        overflow: hidden; /* Prevent background scroll/horizontal overflow */
+      }
+
+      /* ==================================== */
+      /* 3. Animated Background Blobs */
+      /* ==================================== */
+
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Use a gradient base for a more vibrant background */
+        background: var(--gradient-primary);
+      }
+
+      .blob {
+        position: absolute;
+        opacity: 0.7;
+        border-radius: 50%;
+        filter: blur(70px);
+        animation: moveBlob 18s infinite alternate ease-in-out;
+        z-index: 0;
+      }
+
+      .blob:nth-child(1) {
+        width: 500px;
+        height: 500px;
+        background: var(--secondary-color);
+        top: -150px;
+        right: -150px;
+        animation-delay: 0s;
+      }
+
+      .blob:nth-child(2) {
+        width: 350px;
+        height: 350px;
+        background: var(--accent-color);
+        bottom: -100px;
+        left: -100px;
+        animation-delay: 6s;
+      }
+
+      @keyframes moveBlob {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(-10vw, 15vh) scale(1.05);
+        }
+        66% {
+          transform: translate(15vw, -10vh) scale(0.95);
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+      }
+
+      /* ==================================== */
+      /* 4. Error Content Layout & Entrance */
+      /* ==================================== */
+      .error-container {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        padding: 20px;
+        /* Entrance Animation */
+        opacity: 0;
+        transform: translateY(20px);
+        animation: contentEntrance 0.8s ease-out forwards;
+        animation-delay: 0.3s;
+      }
+
+      @keyframes contentEntrance {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ==================================== */
+      /* 5. Logo and Header */
+      /* ==================================== */
+      .logo-text {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: var(--text-light);
+        margin-bottom: 40px;
+      }
+
+      .logo-text span {
+        color: var(--secondary-color);
+      }
+
+      /* ==================================== */
+      /* 6. 404 Text Animation */
+      /* ==================================== */
+      .error-code {
+        font-size: 10rem;
+        font-weight: 900;
+        line-height: 1;
+        color: var(--text-light);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Base glow */
+        margin-bottom: 20px;
+
+        /* Apply Pulse and Glow Animation */
+        animation: glowPulse 2s infinite alternate ease-in-out,
+          subtleBounce 4s infinite ease-in-out;
+      }
+
+      .error-message {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--text-highlight);
+        margin-bottom: 50px;
+        text-shadow: 0 2px 4px var(--shadow-dark);
+      }
+
+      @keyframes glowPulse {
+        0% {
+          text-shadow: 0 0 10px var(--accent-color),
+            0 0 20px var(--accent-color);
+        }
+        100% {
+          text-shadow: 0 0 20px var(--secondary-color),
+            0 0 40px var(--secondary-color);
+        }
+      }
+
+      @keyframes subtleBounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* ==================================== */
+      /* 7. Button Styles */
+      /* ==================================== */
+      .button-group {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap; /* Allows stacking on mobile */
+        justify-content: center;
+      }
+
+      .action-button {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-light);
+        background: var(--gradient-button);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform var(--transition-speed),
+          box-shadow var(--transition-speed);
+        box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+        text-decoration: none; /* For the link elements */
+        display: inline-block;
+      }
+
+      /* Button Hover Scale Animation */
+      .action-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
+      }
+
+      /* Button Glow/Shine Effect */
+      .action-button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.5),
+          /* Shine color */ transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .action-button:hover::after {
+        left: 100%;
+      }
+
+      /* ==================================== */
+      /* 8. Responsiveness (Mobile Adaptation) */
+      /* ==================================== */
+      @media (max-width: 600px) {
+        .error-code {
+          font-size: 6rem; /* Smaller 404 text */
+        }
+
+        .error-message {
+          font-size: 1.4rem;
+          margin-bottom: 40px;
+        }
+
+        .logo-text {
+          margin-bottom: 30px;
+        }
+
+        .button-group {
+          flex-direction: column; /* Stack buttons vertically */
+          gap: 15px;
+          width: 80%; /* Constraint width */
+        }
+
+        .action-button {
+          width: 100%; /* Full width buttons */
+          padding: 12px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="background">
+      <div class="blob"></div>
+      <div class="blob"></div>
+    </div>
+
+    <!-- Centered Error Content Container -->
+    <div class="error-container">
+      <h2 class="logo-text">Stack<span>ly</span></h2>
+
+      <div class="error-code">404</div>
+      <div class="error-message">Page Not Found</div>
+
+      <div class="button-group">
+        <a href="./index.html" class="action-button">HOME</a>
+        <a href="./course.html" class="action-button">COURSES</a>
+      </div>
+    </div>
+  </body>
+</html>

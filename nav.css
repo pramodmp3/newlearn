@@ -1,0 +1,436 @@
+/* --- 1. Variables and Global Styles --- */
+:root {
+  /* NEW COLOR PALETTE: Black/Red/Electric Yellow (High Contrast/Futuristic) */
+  --primary-bg: #000000; /* True Black */
+  --secondary-bg: #111111; /* Very Dark Grey/Off-Black */
+  --accent-color: #ff0000; /* Primary Red (Bold Accent) */
+  --accent-light: #ffff00; /* Electric Yellow (Secondary Accent/Highlight) */
+  --text-color: #f0f0f0; /* Off-White for high contrast */
+
+  /* Mobile/Hamburger specific colors (must be high contrast for the white menu) */
+  --clr-hamburger-dark-blue: #ff0000; /* Red line for dark header background */
+  --clr-mobile-dark-text: #111111; /* Very dark text for white menu background */
+  --soft-shadow: 0 8px 30px rgba(255, 0, 0, 0.4); /* Red Shadow */
+  --glass-bg: rgba(
+    255,
+    0,
+    0,
+    0.05
+  ); /* Very subtle glass effect with Red base */
+  --font-family: "Inter", sans-serif;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: radial-gradient(
+      circle at top left,
+      var(--primary-bg) 0%,
+      var(--secondary-bg) 100%
+    )
+    no-repeat;
+  color: var(--text-color);
+  /* **REQUIRED STICKY FOOTER SETUP** */
+  display: flex; /* Make body a flex container */
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure it takes up full viewport height */
+  /* **END REQUIRED STICKY FOOTER SETUP** */
+  overflow-x: hidden;
+  perspective: 1px;
+  padding-top: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+/* ---------------- HEADER (Animated Gradient) ---------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+
+  /* Header Background: Subtle Red Glass */
+  background: var(--glass-bg);
+  background-size: 300% 300%;
+  animation: headerGradient 12s ease infinite;
+
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 1000;
+}
+
+@keyframes headerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Logo Container */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+  z-index: 1001;
+}
+
+.logo-img {
+  width: 150px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------------- DESKTOP NAVIGATION ---------------- */
+.nav-links-desktop {
+  display: none;
+  margin-left: auto;
+}
+
+.nav-list-desktop {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-item-desktop {
+  position: relative;
+}
+
+/* Base Link Color: Inherits from body (text-color) */
+.nav-link-desktop {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  color: var(--text-color); /* Adjusted to use text-color for dark background */
+}
+
+/* Dropdown caret */
+.nav-item-desktop[aria-haspopup="true"] > .nav-link-desktop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-item-desktop[aria-haspopup="true"] > .nav-link-desktop::after {
+  content: "\25BE";
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--accent-light); /* Electric Yellow Caret */
+  transition: transform var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+  transform: translateY(1px);
+}
+
+/* Hover glow */
+.nav-item-desktop:hover > .nav-link-desktop {
+  color: var(--text-color);
+  transform: none !important;
+  text-shadow: 0 0 8px var(--accent-color); /* Red Glow */
+}
+
+/* FIXED — No vertical movement */
+.nav-item-desktop:hover > .nav-link-desktop {
+  color: var(--text-color);
+  text-shadow: 0 0 8px var(--accent-color);
+  transform: none;
+}
+
+.nav-item-desktop:hover > .nav-link-desktop::after {
+  color: var(--accent-light); /* Yellow Caret on Hover */
+  transform: rotate(180deg) translateY(1px);
+}
+
+/* Desktop Dropdown */
+.dropdown-desktop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--secondary-bg); /* Dark background for dropdown */
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 180px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+}
+
+.nav-item-desktop:hover > .dropdown-desktop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-desktop a {
+  padding: 12px 20px;
+  display: block;
+  color: var(--text-color); /* Light text on dark dropdown */
+  transition: background var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+/* Gradient hover (Red/Yellow themed) */
+.dropdown-desktop a:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--accent-light)
+  ); /* Red to Yellow gradient */
+  color: var(--secondary-bg); /* Dark text on bright hover */
+}
+/* Desktop SHOP Button */
+.shop-btn-desktop .shop-btn-link {
+  padding: 10px 18px;
+  font-weight: 700;
+  color: var(--secondary-bg); /* Dark text on bright button */
+  border-radius: 6px;
+  /* Updated Button Gradient: Red to Yellow */
+  background: linear-gradient(135deg, #ff0000, #ff8c00, #ffff00);
+  background-size: 200% 200%;
+  animation: shopBtnGradient 6s ease infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.shop-btn-desktop .shop-btn-link:hover {
+  transform: scale(1.05);
+  box-shadow: var(--soft-shadow);
+}
+
+/* Button gradient animation (kept the same, but colors change) */
+@keyframes shopBtnGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ---------------- MOBILE NAV / HAMBURGER ---------------- */
+.menu-toggle {
+  display: none;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 1010;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.menu-toggle-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  /* Red hamburger lines on dark header */
+  background: var(--clr-hamburger-dark-blue);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.35s ease, top 0.35s ease;
+}
+
+.menu-toggle-line:nth-child(1) {
+  top: 6px;
+}
+.menu-toggle-line:nth-child(2) {
+  top: 14px;
+}
+.menu-toggle-line:nth-child(3) {
+  top: 22px;
+}
+
+.menu-toggle.open .menu-toggle-line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 14px;
+}
+.menu-toggle.open .menu-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open .menu-toggle-line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 14px;
+}
+
+/* ---------------- MOBILE MENU ---------------- */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Solid White Background */
+  background: #ffffff;
+  background-size: 300% 300%;
+
+  padding-top: 120px;
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.7, 0, 0.3, 1);
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.nav-mobile.open {
+  transform: translateY(0);
+}
+
+.nav-list-mobile {
+  list-style: none;
+  padding: 0 20px;
+}
+
+.nav-item-mobile {
+  /* Subtle border change using accent-color */
+  border-bottom: 1px solid rgba(255, 0, 0, 0.4);
+}
+
+/* Base Mobile Link Color: Dark Text */
+.nav-link-mobile {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--clr-mobile-dark-text);
+  cursor: pointer;
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-link-mobile:hover {
+  color: var(--accent-color); /* Red Accent */
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red shadow for light background */
+}
+
+/* Mobile dropdown arrow */
+.dropdown-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  border: solid var(--clr-mobile-dark-text);
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  transform: rotate(45deg);
+  transition: transform var(--transition-speed) ease;
+}
+
+.dropdown-toggle.active .dropdown-arrow {
+  transform: rotate(135deg);
+}
+
+.dropdown-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  padding-left: 0;
+}
+
+.dropdown-mobile.open {
+  max-height: 200px;
+  padding-bottom: 10px;
+}
+
+.dropdown-mobile a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: var(--clr-mobile-dark-text);
+  transition: color var(--transition-speed) ease,
+    background var(--transition-speed) ease;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.dropdown-mobile a:hover {
+  color: var(--accent-color); /* Red Accent */
+  /* Using a subtle light background hover for white menu */
+  background-color: rgba(255, 0, 0, 0.05);
+}
+/* Mobile SHOP Button */
+.shop-btn-mobile {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--secondary-bg) !important; /* Dark text on bright button */
+
+  /* Updated Button Gradient: Red to Yellow */
+  background: linear-gradient(135deg, #ff0000, #ff8c00, #ffff00);
+  background-size: 200% 200%;
+  animation: shopBtnGradient 6s ease infinite;
+
+  text-align: center;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.shop-btn-mobile:hover {
+  box-shadow: var(--soft-shadow);
+  transform: scale(1.05);
+}
+
+/* Overlay for Mobile */
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(4px);
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .nav-links-desktop {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-links-desktop {
+    display: block;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .nav-mobile {
+    display: none;
+  }
+}

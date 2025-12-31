@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Stackly</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Inter Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./about.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./assets/logooo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./index.html" class="nav-link-desktop">HOME</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./home.html">HOME2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./course.html" class="nav-link-desktop">COURSES</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./dash.html" class="nav-link-desktop">DASHBOARD</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./contact.html" class="nav-link-desktop">CONTACT</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./blog.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./login.html" class="shop-btn-link">LOGIN</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./index.html"
+          >
+            HOME
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./home.html">HOME2</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./course.html" class="nav-link-mobile">COURSES</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./dash.html"
+          >
+            DASHBOARD
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./contact.html" class="nav-link-mobile">CONTACT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./blog.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./login.html" class="shop-btn-mobile">LOGIN</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Animated Background Shapes -->
+    <div class="background-wrapper">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+
+    <div class="page-content">
+      <!-- 1. HERO / INTRODUCTION SECTION -->
+      <section class="hero">
+        <h1 class="hero-title">About Stackly</h1>
+        <p class="hero-subtitle">
+          We are a revolutionary edtech platform dedicated to democratizing
+          access to high-quality, practical tech education for the global
+          workforce.
+        </p>
+        <div class="hero-accent"></div>
+      </section>
+
+      <!-- 2. MISSION & VISION SECTION -->
+      <section class="mission-vision">
+        <div class="mv-grid">
+          <div class="mv-item">
+            <span class="mv-icon">💡</span>
+            <h3>Our Mission</h3>
+            <p>
+              To empower one million aspiring technologists worldwide by
+              providing interactive, project-based courses that bridge the gap
+              between academic theory and industry demands.
+            </p>
+          </div>
+          <div class="mv-item">
+            <span class="mv-icon">🚀</span>
+            <h3>Our Vision</h3>
+            <p>
+              To be the most trusted and effective gateway for career
+              transformation in the technology sector, recognized globally for
+              superior outcomes and student success.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. WHO WE ARE (STORY) SECTION -->
+      <section class="story-section">
+        <div class="story-grid">
+          <div class="story-content">
+            <h2>The Stackly Story</h2>
+            <p>
+              Stackly was founded in 2020 by three former engineers who grew
+              frustrated with the stale, expensive, and outdated methods of
+              vocational training. We believed learning should be flexible,
+              affordable, and focused entirely on job readiness. Starting with
+              just a single course on cloud architecture, we quickly expanded
+              based on community demand, embracing a learning model centered
+              around real-world projects and mentorship. Today, Stackly is a
+              dynamic community serving students in over 50 countries.
+            </p>
+            <p style="margin-top: 15px">
+              Our core philosophy is simple: **Learn by Doing.** We measure our
+              success only by the career success of our graduates.
+            </p>
+          </div>
+          <div class="story-image-card">
+            <img
+              src="./assets/about1.webp"
+              class="story-image"
+              alt="Abstract illustration representing core educational value"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. TEAM HIGHLIGHT SECTION -->
+      <section class="team-section">
+        <h2>Meet Our Leadership</h2>
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <div class="team-photo-wrapper">
+              <img
+                src="./assets/m4.webp"
+                class="team-photo"
+                alt="Photo of Alan"
+              />
+            </div>
+            <h4>Alan Finch</h4>
+            <p>CEO & Co-founder</p>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <div class="team-photo-wrapper">
+              <img
+                src="./assets/m3.webp"
+                class="team-photo"
+                alt="Photo of Maria"
+              />
+            </div>
+            <h4>Maria Santos</h4>
+            <p>Chief Product Officer</p>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <div class="team-photo-wrapper">
+              <img
+                src="./assets/m2.webp"
+                class="team-photo"
+                alt="Photo of Jason"
+              />
+            </div>
+            <h4>Jason Lee</h4>
+            <p>Head of Curriculum</p>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="team-card">
+            <div class="team-photo-wrapper">
+              <img
+                src="assets/m1.webp"
+                class="team-photo"
+                alt="Photo of Nicole"
+              />
+            </div>
+            <h4>Nicole Chen</h4>
+            <p>Director of Student Success</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. CTA SECTION -->
+      <section class="cta-section">
+        <h3 class="cta-message">Join the future of learning with Stackly.</h3>
+        <a href="./course.html" class="cta-button">Explore Courses</a>
+      </section>
+    </div>
+    <footer class="stackly-footer reveal-item" id="stackly-footer">
+      <div class="footer-content">
+        <!-- Top Section: Logo, Links, Address, Social -->
+        <div class="footer-top">
+          <!-- 1. Logo/Brand Section -->
+          <div
+            class="logo-section footer-section reveal-item"
+            style="transition-delay: 0.2s"
+          >
+            <img src="./assets/logooo.webp" alt="" />
+            <p>
+              Your fast track to pharmaceutical delivery. Always reliable,
+              always on time.
+            </p>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div
+            class="links-section footer-section reveal-item"
+            style="transition-delay: 0.4s"
+          >
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="./index.html">HOME</a></li>
+              <li><a href="./course.html">COURSES</a></li>
+              <li><a href="./about.html">ABOUT</a></li>
+              <li><a href="./blog.html">BLOG</a></li>
+              <li><a href="./dash.html">DASHBOARD</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div
+            class="address-section footer-section reveal-item"
+            style="transition-delay: 0.6s"
+          >
+            <h3>Our Headquarters</h3>
+            <p>
+              <strong>STACKLY Inc.</strong><br />
+              1020 Innovation Drive,<br />
+              New York, NY 10001, USA<br />
+              <br />
+            </p>
+          </div>
+
+          <!-- 4. Social Media Icons -->
+          <div
+            class="social-section footer-section reveal-item"
+            style="transition-delay: 0.8s"
+          >
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Newsletter -->
+        <div class="footer-bottom reveal-item" style="transition-delay: 1s">
+          <h3>
+            <span style="color: var(--text-highlight)">Stay Updated</span> with
+            STACKLY
+          </h3>
+          <p>
+            Subscribe to our newsletter for exclusive offers and health tips.
+          </p>
+          <form class="newsletter-form" action="./404.html">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+
+          <!-- Copyright -->
+          <div class="copyright">
+            &copy; 2025 STACKLY Medicine Delivery. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+  </body>
+</html>

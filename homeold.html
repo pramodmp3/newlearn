@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discover Stackly Apps | Innovative Learning Tools</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./assets/logooo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home.css" class="nav-link-desktop">HOME2</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./apps.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQ</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <!-- <li class="nav-item-desktop">
+            <a href="./contact.html" class="nav-link-desktop">CONTACT</a>
+          </li> -->
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home.html"
+          >
+            HOME2
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./apps.css" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQ
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <!-- <li class="nav-item-mobile">
+          <a href="./contact.html" class="nav-link-mobile">CONTACT</a>
+        </li> -->
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Decorative Floating Shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative z-10"
+    >
+      <!-- Header/Hero Section -->
+      <header
+        class="text-center mb-16 md:mb-24 pt-10 section-animate"
+        data-delay="0"
+      >
+        <p
+          class="text-xl font-semibold text-violet-600 mb-3 tracking-wider uppercase"
+        >
+          Innovation in Education
+        </p>
+        <h1
+          class="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-gray-900 leading-tight"
+        >
+          <span
+            class="bg-clip-text text-transparent"
+            style="background-color: aqua"
+          >
+            Discover Stackly Apps
+          </span>
+        </h1>
+        <p
+          class="mt-4 text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto"
+          style="color: white"
+        >
+          Innovative tools for smarter learning, designed to make complex
+          subjects accessible, interactive, and fun.
+        </p>
+      </header>
+
+      <!-- Apps Showcase Grid -->
+      <section class="mb-20 md:mb-32">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12 section-animate"
+          data-delay="200"
+        >
+          Our Core Learning Tools
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
+          <!-- App Card 1: Modular Builder -->
+          <div
+            class="app-card bg-white p-6 rounded-2xl shadow-xl border border-gray-100 section-animate text-center"
+            data-delay="400"
+          >
+            <img
+              src="./assets/quant.webp"
+              alt="Modular Builder Icon"
+              class="w-16 h-16 mb-4 rounded-xl ring-4 ring-blue-100 object-cover mx-auto"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Modular Builder
+            </h3>
+            <p class="text-gray-500 mb-6">
+              Design custom learning paths using our drag-and-drop module
+              system. Perfect for educators and lifelong self-learners.
+            </p>
+            <a
+              href="./apps.html"
+              class="inline-block px-6 py-2 text-white font-semibold rounded-full btn-animated shadow-md"
+            >
+              Learn More &rarr;
+            </a>
+          </div>
+
+          <!-- App Card 2: AI Tutor Engine -->
+          <div
+            class="app-card bg-white p-6 rounded-2xl shadow-xl border border-gray-100 section-animate text-center"
+            data-delay="600"
+          >
+            <img
+              src="./assets/data.webp"
+              alt="AI Tutor Engine Icon"
+              class="w-16 h-16 mb-4 rounded-xl ring-4 ring-violet-100 object-cover mx-auto"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              AI Tutor Engine
+            </h3>
+            <p class="text-gray-500 mb-6">
+              Get instant, nuanced feedback and 24/7 support. Our AI engine
+              identifies weaknesses and guides you to mastery.
+            </p>
+            <a
+              href="./apps.html"
+              class="inline-block px-6 py-2 text-white font-semibold rounded-full btn-animated shadow-md"
+            >
+              Try Free &rarr;
+            </a>
+          </div>
+
+          <!-- App Card 3: AR Labs -->
+          <div
+            class="app-card bg-white p-6 rounded-2xl shadow-xl border border-gray-100 section-animate text-center"
+            data-delay="800"
+          >
+            <img
+              src="./assets/re.webp"
+              alt="AR Labs Icon"
+              class="w-16 h-16 mb-4 rounded-xl ring-4 ring-emerald-100 object-cover mx-auto"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">AR Labs</h3>
+            <p class="text-gray-500 mb-6">
+              Bring biology, physics, and chemistry concepts to life with
+              Augmented Reality models right in your classroom or home.
+            </p>
+            <a
+              href="./apps.html"
+              class="inline-block px-6 py-2 text-white font-semibold rounded-full btn-animated shadow-md"
+            >
+              View Demo &rarr;
+            </a>
+          </div>
+
+          <!-- App Card 4: Gamified Quizzes -->
+          <!-- <div
+            class="app-card bg-white p-6 rounded-2xl shadow-xl border border-gray-100 section-animate text-center"
+            data-delay="1000"
+          >
+            <img
+              src="https://placehold.co/100x100/f97316/ffffff?text=QUIZ"
+              alt="Gamified Quizzes Icon"
+              class="w-16 h-16 mb-4 rounded-xl ring-4 ring-orange-100 object-cover mx-auto"
+            />
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Gamified Quizzes
+            </h3>
+            <p class="text-gray-500 mb-6">
+              Challenge your peers and test your knowledge in engaging,
+              competitive quiz formats designed for maximum fun and learning.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-6 py-2 text-white font-semibold rounded-full btn-animated shadow-md"
+            >
+              Play Now &rarr;
+            </a>
+          </div> -->
+        </div>
+      </section>
+
+      <!-- NEW SECTION 1: How It Works / Process Flow -->
+      <section class="mb-20 md:mb-32 max-w-5xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12 section-animate"
+          data-delay="1200"
+        >
+          How Stackly Works in 3 Simple Steps
+        </h2>
+
+        <div
+          class="relative flex flex-col md:flex-row justify-between items-start text-center md:text-left"
+        >
+          <!-- Process Line (Visible on Mobile/Hidden on Desktop via CSS) -->
+          <!-- The process-flow-line CSS needs to be modified for MD:flex-row layout -->
+
+          <!-- Step 1 -->
+          <div class="flex-1 p-4 section-animate" data-delay="1400">
+            <div
+              class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto md:mx-0 mb-4 shadow-lg"
+            >
+              1
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Choose Your Stack
+            </h3>
+            <p class="text-gray-600" style="color: white">
+              Select a modular learning path (a 'Stack') based on your subject,
+              skill level, and goals.
+            </p>
+          </div>
+
+          <!-- Arrow/Spacer -->
+          <div
+            class="hidden md:flex flex-col items-center justify-center w-20 h-20 relative"
+          >
+            <svg
+              class="w-10 h-10 text-violet-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex-1 p-4 section-animate" data-delay="1600">
+            <div
+              class="w-16 h-16 bg-violet-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto md:mx-0 mb-4 shadow-lg"
+            >
+              2
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Learn & Interact
+            </h3>
+            <p class="text-gray-600" style="color: white">
+              Engage with interactive lessons, AR models, and gamified quizzes.
+              Get real-time AI feedback.
+            </p>
+          </div>
+
+          <!-- Arrow/Spacer -->
+          <div
+            class="hidden md:flex flex-col items-center justify-center w-20 h-20 relative"
+          >
+            <svg
+              class="w-10 h-10 text-blue-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex-1 p-4 section-animate" data-delay="1800">
+            <div
+              class="w-16 h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto md:mx-0 mb-4 shadow-lg"
+            >
+              3
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Achieve Mastery
+            </h3>
+            <p class="text-gray-600" style="color: white">
+              Track your progress to completion, earn mastery badges, and unlock
+              advanced learning modules.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW SECTION 2: Trusted By / Logos -->
+      <section class="mb-20 md:mb-32 max-w-6xl mx-auto">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12 section-animate"
+          data-delay="2000"
+        >
+          Trusted by Leading Institutions
+        </h2>
+
+        <div
+          class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-70"
+        >
+          <!-- Logo 1 -->
+          <img
+            src="./assets/cl1.webp"
+            alt="Acme Edu Logo"
+            class="h-10 sm:h-12 section-animate grayscale hover:grayscale-0 transition duration-300"
+            data-delay="2200"
+          />
+          <!-- Logo 2 -->
+          <img
+            src="./assets/cl2.webp"
+            alt="Tech Inc Logo"
+            class="h-10 sm:h-12 section-animate grayscale hover:grayscale-0 transition duration-300"
+            data-delay="2400"
+          />
+          <!-- Logo 3 -->
+          <img
+            src="./assets/cl4.jpg"
+            alt="Learn HQ Logo"
+            class="h-10 sm:h-12 section-animate grayscale hover:grayscale-0 transition duration-300"
+            data-delay="2600"
+          />
+          <!-- Logo 4 -->
+          <img
+            src="./assets/cl7.webp"
+            alt="Data Hub Logo"
+            class="h-10 sm:h-12 section-animate grayscale hover:grayscale-0 transition duration-300"
+            data-delay="2800"
+          />
+        </div>
+      </section>
+
+      <!-- NEW SECTION 3: Testimonials -->
+      <section class="mb-20 md:mb-32 max-w-4xl mx-auto text-center">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12 section-animate"
+          data-delay="3000"
+        >
+          Hear From Our Community
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-violet-500 section-animate"
+            data-delay="3200"
+          >
+            <img
+              src="./assets/m1.webp"
+              alt="Avatar"
+              class="w-16 h-16 rounded-full mx-auto mb-4 object-cover ring-4 ring-violet-100"
+            />
+            <p class="text-lg text-gray-700 italic mb-4">
+              "Stackly's AI Tutor is a game-changer. It provides specific,
+              actionable feedback instantly, which has drastically cut down my
+              lesson prep time."
+            </p>
+            <p class="font-bold text-gray-900">Emily Lim</p>
+            <p class="text-sm text-gray-500">High School Educator</p>
+          </div>
+          <!-- Testimonial 2 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-blue-500 section-animate"
+            data-delay="3400"
+          >
+            <img
+              src="./assets/m2.webp"
+              alt="Avatar"
+              class="w-16 h-16 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-100"
+            />
+            <p class="text-lg text-gray-700 italic mb-4">
+              "The AR Labs app made the cell biology module fascinating! It
+              turned abstract concepts into physical models we could interact
+              with."
+            </p>
+            <p class="font-bold text-gray-900">John Davis</p>
+            <p class="text-sm text-gray-500">10th Grade Student</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Features Section -->
+      <section class="max-w-6xl mx-auto mb-20 md:mb-32 text-center">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-gray-800 mb-12 section-animate"
+          data-delay="3600"
+        >
+          Key Platform Features
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-400 section-animate"
+            data-delay="3800"
+          >
+            <div
+              class="text-blue-500 mx-auto mb-4 w-12 h-12 flex items-center justify-center text-4xl font-bold"
+            >
+              🎯
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Progress Tracking
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Real-time dashboards show your growth and areas needing focus.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-violet-400 section-animate"
+            data-delay="4000"
+          >
+            <div
+              class="text-violet-500 mx-auto mb-4 w-12 h-12 flex items-center justify-center text-4xl font-bold"
+            >
+              🤖
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Smart Grading</h3>
+            <p class="text-gray-600 text-sm">
+              Automated assessment frees up educator time for personalized
+              attention.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-emerald-400 section-animate"
+            data-delay="4200"
+          >
+            <div
+              class="text-emerald-500 mx-auto mb-4 w-12 h-12 flex items-center justify-center text-4xl font-bold"
+            >
+              🤝
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Community Forums
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Collaborate with peers and educators in subject-specific
+              discussion groups.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div
+            class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-orange-400 section-animate"
+            data-delay="4400"
+          >
+            <div
+              class="text-orange-500 mx-auto mb-4 w-12 h-12 flex items-center justify-center text-4xl font-bold"
+            >
+              ☁️
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Cloud Sync</h3>
+            <p class="text-gray-600 text-sm">
+              Seamless learning experience across all your devices, anytime,
+              anywhere.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA Section (Download) -->
+      <div
+        class="mt-16 p-10 md:p-16 bg-white rounded-3xl shadow-2xl text-center border-t-8 border-blue-500/50 section-animate"
+        data-delay="4600"
+      >
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+          Ready to Start Learning Smarter?
+        </h3>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          Download the Stackly App today and redefine your educational journey.
+        </p>
+        <a
+          href="./404.html"
+          class="inline-block px-10 py-4 text-white font-bold text-lg rounded-full btn-animated shadow-xl hover:shadow-2xl transition duration-300"
+        >
+          Download Now &rarr;
+        </a>
+      </div>
+    </main>
+    <footer class="stackly-footer reveal-item" id="stackly-footer">
+      <div class="footer-content">
+        <!-- Top Section: Logo, Links, Address, Social -->
+        <div class="footer-top">
+          <!-- 1. Logo/Brand Section -->
+          <div
+            class="logo-section footer-section reveal-item"
+            style="transition-delay: 0.2s"
+          >
+            <img src="./assets/logooo.webp" alt="" />
+            <p>
+              Your fast track to pharmaceutical delivery. Always reliable,
+              always on time.
+            </p>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div
+            class="links-section footer-section reveal-item"
+            style="transition-delay: 0.4s"
+          >
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="./home.html">HOME</a></li>
+              <li><a href="./apps.html">APPS</a></li>
+              <li><a href="./about2.html">ABOUT</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">CONTACT</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div
+            class="address-section footer-section reveal-item"
+            style="transition-delay: 0.6s"
+          >
+            <h3>Our Headquarters</h3>
+            <p>
+              <strong>STACKLY Inc.</strong><br />
+              1020 Innovation Drive,<br />
+              New York, NY 10001, USA<br />
+              <br />
+            </p>
+          </div>
+
+          <!-- 4. Social Media Icons -->
+          <div
+            class="social-section footer-section reveal-item"
+            style="transition-delay: 0.8s"
+          >
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Newsletter -->
+        <div class="footer-bottom reveal-item" style="transition-delay: 1s">
+          <h3>
+            <span style="color: var(--text-highlight)">Stay Updated</span> with
+            STACKLY
+          </h3>
+          <p>
+            Subscribe to our newsletter for exclusive offers and health tips.
+          </p>
+          <form class="newsletter-form" action="./404.html">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+
+          <!-- Copyright -->
+          <div class="copyright">
+            &copy; 2025 STACKLY Medicine Delivery. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      // Minimal JS for Staggered Fade-in and Slide-up Effect on all sections
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".section-animate");
+
+        sections.forEach((section) => {
+          const delay = parseInt(section.getAttribute("data-delay") || 0);
+
+          // Use setTimeout to create the staggered effect
+          setTimeout(() => {
+            section.classList.add("appear-active");
+          }, delay);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Stackly | Empowering Learners</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./about2.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="./home2.html" class="logo-link">
+        <div class="logo-img"><img src="./assets/logooo.webp" alt="" /></div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation Desktop">
+        <ul class="nav-list-desktop">
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./home.html" class="nav-link-desktop">HOME2</a>
+            <ul class="dropdown-desktop">
+              <li><a href="./index.html">HOME1</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./apps.html" class="nav-link-desktop">APPS</a>
+          </li>
+          <li class="nav-item-desktop">
+            <a href="./about2.html" class="nav-link-desktop">ABOUT</a>
+          </li>
+          <li class="nav-item-desktop" aria-haspopup="true">
+            <a href="./faq.html" class="nav-link-desktop">FAQ</a>
+            <!-- <ul class="dropdown-desktop">
+              <li><a href="./about2.html">About US</a></li>
+              <li><a href="./career.html">CAREERS</a></li>
+            </ul> -->
+          </li>
+          <!-- <li class="nav-item-desktop">
+            <a href="./contact.html" class="nav-link-desktop">CONTACT</a>
+          </li> -->
+          <li class="nav-item-desktop">
+            <a href="./blog2.html" class="nav-link-desktop">BLOG</a>
+          </li>
+          <li class="nav-item-desktop shop-btn-desktop">
+            <a href="./contact2.html" class="shop-btn-link">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle Navigation"
+      >
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+        <span class="menu-toggle-line"></span>
+      </button>
+    </header>
+    <!-- Mobile Slide-in Navigation -->
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="nav-list-mobile">
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="home-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="home-dropdown"
+            href="./home.html"
+          >
+            HOME2
+            <span class="dropdown-arrow"></span>
+          </a>
+          <ul id="home-dropdown" class="dropdown-mobile">
+            <li><a href="./index.html">HOME1</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./apps.html" class="nav-link-mobile">APPS</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a href="./about2.html" class="nav-link-mobile">ABOUT</a>
+        </li>
+
+        <li class="nav-item-mobile">
+          <a
+            class="nav-link-mobile dropdown-toggle"
+            data-dropdown="about-dropdown"
+            role="button"
+            aria-expanded="false"
+            aria-controls="about-dropdown"
+            href="./faq.html"
+          >
+            FAQ
+            <!-- <span class="dropdown-arrow"></span> -->
+          </a>
+          <!-- <ul id="about-dropdown" class="dropdown-mobile">
+            <li><a href="./about2.html">About US</a></li>
+            <li><a href="./career.html">CAREERS</a></li>
+          </ul> -->
+        </li>
+
+        <!-- <li class="nav-item-mobile">
+          <a href="./contact.html" class="nav-link-mobile">CONTACT</a>
+        </li> -->
+
+        <li class="nav-item-mobile">
+          <a href="./blog2.html" class="nav-link-mobile">BLOG</a>
+        </li>
+        <li class="nav-item-mobile">
+          <a href="./contact2.html" class="shop-btn-mobile">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Overlay for closing the mobile menu -->
+    <div class="overlay"></div>
+    <!-- Decorative Floating Shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative z-10"
+    >
+      <!-- Header/Hero Section -->
+      <header
+        class="text-center mb-16 md:mb-24 pt-10 section-animate"
+        data-delay="0"
+      >
+        <p
+          class="text-xl font-semibold text-blue-600 mb-3 tracking-wider uppercase"
+        >
+          Our Story
+        </p>
+        <h1
+          class="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-gray-900 leading-tight"
+        >
+          <span
+            class="bg-clip-text text-transparent"
+            style="
+              background-image: linear-gradient(
+                90deg,
+                var(--primary-blue),
+                var(--accent-purple)
+              );
+            "
+          >
+            About Stackly
+          </span>
+        </h1>
+        <p
+          class="mt-4 text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto"
+          style="color: white"
+        >
+          Empowering learners through technology to build a better, brighter,
+          and more knowledgeable future for everyone.
+        </p>
+      </header>
+
+      <!-- Our Mission Section -->
+      <section
+        class="max-w-4xl mx-auto mb-20 md:mb-32 section-animate"
+        data-delay="200"
+      >
+        <div
+          class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border-t-8 border-violet-500/50"
+        >
+          <h2
+            class="text-4xl font-bold text-gray-900 mb-6 border-b pb-3"
+            style="color: var(--accent-purple)"
+          >
+            Our Mission
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Stackly was founded on the belief that learning should be
+            personalized, engaging, and universally accessible. Our mission is
+            to dismantle the barriers of traditional education by providing
+            modular, AI-driven learning tools that adapt to every student's
+            unique pace, style, and goals. We strive to foster a global
+            community of lifelong learners prepared for the challenges of
+            tomorrow's world.
+          </p>
+        </div>
+      </section>
+
+      <!-- Our Vision Section -->
+      <section
+        class="max-w-4xl mx-auto mb-20 md:mb-32 section-animate"
+        data-delay="400"
+      >
+        <div
+          class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border-t-8 border-blue-500/50"
+        >
+          <h2
+            class="text-4xl font-bold text-gray-900 mb-6 border-b pb-3"
+            style="color: var(--primary-blue)"
+          >
+            Our Vision
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            We envision a world where curiosity drives progress and where
+            technology serves as the ultimate equalizer in education. Stackly
+            will be the leading global standard for EdTech, moving beyond simple
+            content delivery to create immersive, effective, and joyful learning
+            experiences powered by the latest advancements in virtual reality,
+            artificial intelligence, and cognitive science.
+          </p>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="text-center mb-20 md:mb-32">
+        <h2
+          class="text-4xl font-bold text-gray-900 mb-12 section-animate"
+          data-delay="600"
+        >
+          Meet the Team Driving Innovation
+        </h2>
+
+        <div
+          class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto"
+        >
+          <!-- Team Member 1 -->
+          <div
+            class="team-card bg-white p-6 rounded-2xl shadow-xl border-2 border-transparent section-animate"
+            data-delay="800"
+          >
+            <img
+              src="./assets/m1.webp"
+              alt="Co-Founder CEO"
+              class="w-28 h-28 md:w-36 md:h-36 rounded-full mx-auto mb-4 object-cover ring-4 ring-violet-200"
+              onerror="this.onerror=null; this.src='https://placehold.co/150x150/8b5cf6/ffffff?text=C.S.'"
+            />
+            <h3 class="text-xl font-bold text-gray-900">Dr. Claire Stacks</h3>
+            <p class="text-sm text-violet-600 font-semibold">
+              CEO & Co-Founder
+            </p>
+            <p class="text-xs text-gray-500 mt-2">Cognitive Scientist</p>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div
+            class="team-card bg-white p-6 rounded-2xl shadow-xl border-2 border-transparent section-animate"
+            data-delay="1000"
+          >
+            <img
+              src="./assets/m2.webp"
+              alt="Co-Founder CTO"
+              class="w-28 h-28 md:w-36 md:h-36 rounded-full mx-auto mb-4 object-cover ring-4 ring-blue-200"
+              onerror="this.onerror=null; this.src='https://placehold.co/150x150/3b82f6/ffffff?text=A.K.'"
+            />
+            <h3 class="text-xl font-bold text-gray-900">Aiden Kim</h3>
+            <p class="text-sm text-blue-600 font-semibold">CTO & Co-Founder</p>
+            <p class="text-xs text-gray-500 mt-2">Lead Platform Architect</p>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div
+            class="team-card bg-white p-6 rounded-2xl shadow-xl border-2 border-transparent section-animate"
+            data-delay="1200"
+          >
+            <img
+              src="./assets/m3.webp"
+              alt="Head of Content"
+              class="w-28 h-28 md:w-36 md:h-36 rounded-full mx-auto mb-4 object-cover ring-4 ring-orange-200"
+              onerror="this.onerror=null; this.src='https://placehold.co/150x150/f97316/ffffff?text=L.G.'"
+            />
+            <h3 class="text-xl font-bold text-gray-900">Lena Garcia</h3>
+            <p class="text-sm text-orange-600 font-semibold">Head of Content</p>
+            <p class="text-xs text-gray-500 mt-2">Curriculum Specialist</p>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div
+            class="team-card bg-white p-6 rounded-2xl shadow-xl border-2 border-transparent section-animate"
+            data-delay="1400"
+          >
+            <img
+              src="./assets/m4.webp"
+              alt="Design Lead"
+              class="w-28 h-28 md:w-36 md:h-36 rounded-full mx-auto mb-4 object-cover ring-4 ring-emerald-200"
+              onerror="this.onerror=null; this.src='https://placehold.co/150x150/10b981/ffffff?text=R.P.'"
+            />
+            <h3 class="text-xl font-bold text-gray-900">Ryan Patel</h3>
+            <p class="text-sm text-emerald-600 font-semibold">UX/UI Lead</p>
+            <p class="text-xs text-gray-500 mt-2">Interactive Design</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <div
+        class="mt-16 p-10 md:p-16 bg-white rounded-3xl shadow-2xl text-center border-t-8 border-violet-500/50 section-animate"
+        data-delay="1600"
+      >
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
+          Join Our Mission to Transform Education
+        </h3>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          Be part of a team that is building the future of learning, one stack
+          at a time.
+        </p>
+        <a
+          href="./404.html"
+          class="inline-block px-10 py-4 text-white font-bold text-lg rounded-full btn-cta shadow-xl hover:shadow-2xl transition duration-300"
+        >
+          View Open Roles &rarr;
+        </a>
+      </div>
+    </main>
+    <footer class="stackly-footer reveal-item" id="stackly-footer">
+      <div class="footer-content">
+        <!-- Top Section: Logo, Links, Address, Social -->
+        <div class="footer-top">
+          <!-- 1. Logo/Brand Section -->
+          <div
+            class="logo-section footer-section reveal-item"
+            style="transition-delay: 0.2s"
+          >
+            <img src="./assets/logooo.webp" alt="" />
+            <p>
+              Your fast track to pharmaceutical delivery. Always reliable,
+              always on time.
+            </p>
+          </div>
+
+          <!-- 2. Quick Links -->
+          <div
+            class="links-section footer-section reveal-item"
+            style="transition-delay: 0.4s"
+          >
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="./home.html">HOME</a></li>
+              <li><a href="./apps.html">APPS</a></li>
+              <li><a href="./about2.html">ABOUT</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+              <li><a href="./contact2.html">CONTACT</a></li>
+            </ul>
+          </div>
+
+          <!-- 3. Company Address -->
+          <div
+            class="address-section footer-section reveal-item"
+            style="transition-delay: 0.6s"
+          >
+            <h3>Our Headquarters</h3>
+            <p>
+              <strong>STACKLY Inc.</strong><br />
+              1020 Innovation Drive,<br />
+              New York, NY 10001, USA<br />
+              <br />
+            </p>
+          </div>
+
+          <!-- 4. Social Media Icons -->
+          <div
+            class="social-section footer-section reveal-item"
+            style="transition-delay: 0.8s"
+          >
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="./404.html" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="./404.html" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="./404.html" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="./404.html" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Newsletter -->
+        <div class="footer-bottom reveal-item" style="transition-delay: 1s">
+          <h3>
+            <span style="color: var(--text-highlight)">Stay Updated</span> with
+            STACKLY
+          </h3>
+          <p>
+            Subscribe to our newsletter for exclusive offers and health tips.
+          </p>
+          <form class="newsletter-form" action="./404.html">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+
+          <!-- Copyright -->
+          <div class="copyright">
+            &copy; 2025 STACKLY Medicine Delivery. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script src="./footer2.js"></script>
+    <script>
+      // Minimal JS for Staggered Fade-in and Slide-up Effect on all sections
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".section-animate");
+
+        sections.forEach((section) => {
+          const delay = parseInt(section.getAttribute("data-delay") || 0);
+
+          // Use setTimeout to create the staggered effect
+          setTimeout(() => {
+            section.classList.add("appear-active");
+          }, delay);
+        });
+      });
+    </script>
+  </body>
+</html>
